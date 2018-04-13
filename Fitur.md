@@ -1,9 +1,9 @@
 # **Fitur yang ada**
 
-## ***fitur secara global (Sebelum Login)***
-- Login/Register
+fitur secara global (Sebelum Login)
+   - Login/Register
 
-###Klien/Majikan
+### Klien/Majikan
 Majikan dapat mencari pekerja sesuai kriteria dan kemampuan yang diinginkan
 -- hal yang dapat dilakukan oleh majikan --
 1. Mencari Pekerja seusuai filter
