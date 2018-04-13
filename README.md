@@ -1,2 +1,4 @@
 # salur.in
-Platform yang mempertemukan pencari jasa (PRK, Supir, Satpam) dengan Agen yang menyediakan, serta mempertemukan orang yang mencari pekerjaan melalu agen yang tersedia
+- Ismail Syarief 5116100168
+- Fandy Putra Muhammad 51161080
+- Hilmi Raditya 5116100164
