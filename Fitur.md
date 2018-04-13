@@ -1,6 +1,6 @@
-**Fitur yang ada**
+# **Fitur yang ada**
 
-***fitur secara global (Sebelum Login)***
+## ***fitur secara global (Sebelum Login)***
 - Login/Register
 
 ###Klien/Majikan
