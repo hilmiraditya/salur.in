@@ -1,6 +1,6 @@
-#Fitur yang ada
+#Fitur yang ada#
 
-###fitur secara global (Sebelum Login)
+###fitur secara global (Sebelum Login)###
 - Login/Register
 
 ###Klien/Majikan
@@ -21,12 +21,12 @@ Majikan dapat mencari pekerja sesuai kriteria dan kemampuan yang diinginkan
    
 2. Mencari agen sesuai filter
    filternya adalah:
-   - Nama Agen
-   - Kota
+      - Nama Agen
+      - Kota
 3. Edit Profil diri
   isi profil:
-  - Nama Lengkap
-  - Alamat
-  - Email
-  - Foto
-  - No Telpon
+     - Nama Lengkap
+     - Alamat
+     - Email
+     - Foto
+     - No Telpon
