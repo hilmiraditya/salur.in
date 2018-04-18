@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Padang Pantek
+                    Bau Memek
                 </div>
 
                 <div class="links">
