@@ -30,3 +30,26 @@ Majikan dapat mencari pekerja sesuai kriteria dan kemampuan yang diinginkan
      - Email
      - Foto
      - No Telpon
+     
+     
+### Pekerja
+--- hal yang dapat dilakukan oleh Pekerja --
+1. Edit Profil diri
+  isi profil:
+     - Nama Lengkap
+     - No.KTP & KK
+     - Nama Orang Tua
+     - Upload Surat keterangan kriminal
+     - Upload Surat bebas narkotika
+     - Upload KTP & KK
+     - Kelahiran
+     - Domisili
+     - Alamat Lengkap
+     - Foto
+     - No Telpon
+2. Mencari Agen
+     - Nama Agen
+     - Kota
+3. Isi Track record
+     - Pernah Bekerja di
+     - Lama Bekerja
