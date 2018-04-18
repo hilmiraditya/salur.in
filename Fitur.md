@@ -6,7 +6,7 @@ fitur secara global (Sebelum Login)
 ### Klien/Majikan
 Majikan dapat mencari pekerja sesuai kriteria dan kemampuan yang diinginkan
 -- hal yang dapat dilakukan oleh majikan --
-1. Mencari Pekerja seusuai filter
+1. Mencari Pekerja sesuai filter
    filternya adalah:
    - Kota Asal
    - Domisili
@@ -37,6 +37,7 @@ Majikan dapat mencari pekerja sesuai kriteria dan kemampuan yang diinginkan
 1. Edit Profil diri
   isi profil:
      - Nama Lengkap
+     - Tempat / Tanggal Lahir
      - No.KTP & KK
      - Nama Orang Tua
      - Upload Surat keterangan kriminal
