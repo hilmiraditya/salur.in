@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Bau Memek
+                    Aroma Hima
                 </div>
 
                 <div class="links">
