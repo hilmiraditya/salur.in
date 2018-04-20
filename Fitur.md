@@ -54,6 +54,7 @@ Majikan dapat mencari pekerja sesuai kriteria dan kemampuan yang diinginkan
 3. Isi Track record
      - Pernah Bekerja di
      - Lama Bekerja
+     - Sedang dalam naungan Agen X
 
 
 ### Penyalur/Agen
