@@ -11,6 +11,15 @@
 |
 */
 
+//ROUTE TANPA CONTROLLER TARO SINI YA//
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('public.home');
 });
+
+Route::get('/about', function () {
+    return view('public.about');
+});
+
+
+//ROUTE TANPA CONTROLLER TARO SINI YA//
