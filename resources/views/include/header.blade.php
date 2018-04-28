@@ -16,7 +16,7 @@
               <a class="nav-link" href="/tentang">Tentang</a>
             </li>
             <li class="nav-item @yield('masuk')">
-              <a class="nav-link" href="/masuk">Masuk</a>
+              <a class="nav-link" href="/login">Masuk</a>
             </li>
           </ul>
         </div>

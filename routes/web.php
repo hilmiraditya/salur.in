@@ -23,3 +23,6 @@ Route::get('/tentang', function () {
 
 
 //ROUTE TANPA CONTROLLER TARO SINI YA//
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
