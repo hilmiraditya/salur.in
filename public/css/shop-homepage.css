@@ -13,3 +13,14 @@ body {
     padding-top: 56px;
   }
 }
+
+@media (max-width: 981px) {
+	
+	.list-group{
+		margin-bottom: 3vh;
+	}
+
+	.carousel{
+		display: none;
+	}
+}

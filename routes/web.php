@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('public.home');
 });
 
-Route::get('/about', function () {
+Route::get('/tentang', function () {
     return view('public.about');
 });
 

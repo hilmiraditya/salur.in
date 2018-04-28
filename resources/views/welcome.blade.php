@@ -76,11 +76,13 @@
                     @endauth
                 </div>
             @endif
-
+            <div class="container">
+            </div>
             <div class="content">
                 <div class="title m-b-md">
                     Padang Pantek
                 </div>
+
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
