@@ -13,9 +13,60 @@
 
           <h1 class="my-4">Supir</h1>
           <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
+            <a href="#" class="list-group-item">
+              <label>Domisili : </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Semua Domisili</option>
+                <option>Surabaya</option>
+                <option>Sidoarjo</option>
+                <option>Malang</option>
+                <option>Gresik</option>
+              </select>
+            </a>
+            <a href="#" class="list-group-item">
+              <label>Kota Asal : </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Semua Kota</option>
+                <option>Surabaya</option>
+                <option>Sidoarjo</option>
+                <option>Malang</option>
+                <option>Gresik</option>
+              </select>              
+            </a>
+            <a href="#" class="list-group-item">
+              <label>Pendidikan Terakhir : </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Semua Pendidikan</option>
+                <option>Kuliah</option>
+                <option>SMA</option>
+                <option>SMP</option>
+                <option>SD</option>
+                <option>Tidak Ada</option>
+              </select>
+            </a>
+            <a href="#" class="list-group-item">
+              <label>Status : </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <Option>Semua</Option>
+                <option>Menikah</option>
+                <option>Belum Menikah</option>
+              </select>
+            </a>
+            <a href="#" class="list-group-item">
+              <label>Agama : </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Semua Agama</option>
+                <option>Islam</option>
+                <option>Kristen Protestan</option>
+                <option>Kristen Katolik</option>
+                <option>Hindu</option>
+                <option>Buddha</option>
+                <option>Tidak Beragama</option>
+              </select>
+            </a>
+            <a href="#" class="list-group-item" style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </a>
           </div>
 
         </div>
@@ -31,13 +82,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+                <img class="d-block img-fluid" src="{{ url('images/foto1.jpg') }}" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+                <img class="d-block img-fluid" src="{{ url('images/foto2.jpg') }}" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+                <img class="d-block img-fluid" src="{{ url('images/foto3.jpg') }}" alt="Third slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
