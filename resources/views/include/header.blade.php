@@ -1,4 +1,5 @@
     <!-- Navigation -->
+    <link rel="stylesheet" type="text/css" href="{{ url('css/style.css') }}">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="/">
@@ -18,7 +19,24 @@
               <a class="nav-link" href="/tentang">Tentang</a>
             </li>
             <li class="nav-item @yield('masuk')">
-              <a class="nav-link" href="/masuk">Masuk</a>
+                @guest
+                  <a class="nav-link" href="/login_type">Masuk</a>
+                @else
+                    <li class="dropdown nav-link" id="user-btn">
+                        <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li class="nav-link">
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">Logout</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}</form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
             </li>
           </ul>
         </div>
