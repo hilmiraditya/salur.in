@@ -39,7 +39,49 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapPekerjaRoutes();
+
+        $this->mapAgencyRoutes();
+
         //
+    }
+
+    /**
+     * Define the "agency" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAgencyRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'agency', 'auth:agency'],
+            'prefix' => 'agency',
+            'as' => 'agency.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/agency.php');
+        });
+    }
+
+    /**
+     * Define the "pekerja" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapPekerjaRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'pekerja', 'auth:pekerja'],
+            'prefix' => 'pekerja',
+            'as' => 'pekerja.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/pekerja.php');
+        });
     }
 
     /**

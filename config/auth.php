@@ -36,6 +36,16 @@ return [
     */
 
     'guards' => [
+        'pekerja' => [
+            'driver' => 'session',
+            'provider' => 'pekerjas',
+        ],
+
+        'agency' => [
+            'driver' => 'session',
+            'provider' => 'agencies',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +75,16 @@ return [
     */
 
     'providers' => [
+        'pekerjas' => [
+            'driver' => 'eloquent',
+            'model' => App\Pekerja::class,
+        ],
+
+        'agencies' => [
+            'driver' => 'eloquent',
+            'model' => App\Agency::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +112,18 @@ return [
     */
 
     'passwords' => [
+        'pekerjas' => [
+            'provider' => 'pekerjas',
+            'table' => 'pekerja_password_resets',
+            'expire' => 60,
+        ],
+
+        'agencies' => [
+            'provider' => 'agencies',
+            'table' => 'agency_password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
