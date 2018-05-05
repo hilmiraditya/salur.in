@@ -61,3 +61,17 @@ Route::group(['prefix' => 'pekerja'], function () {
   Route::get('/password/reset', 'PekerjaAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'PekerjaAuth\ResetPasswordController@showResetForm');
 });
+
+Route::group(['prefix' => 'majikan'], function () {
+  Route::get('/login', 'MajikanAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'MajikanAuth\LoginController@login');
+  Route::post('/logout', 'MajikanAuth\LoginController@logout')->name('logout');
+
+  Route::get('/register', 'MajikanAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'MajikanAuth\RegisterController@register');
+
+  Route::post('/password/email', 'MajikanAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+  Route::post('/password/reset', 'MajikanAuth\ResetPasswordController@reset')->name('password.email');
+  Route::get('/password/reset', 'MajikanAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+  Route::get('/password/reset/{token}', 'MajikanAuth\ResetPasswordController@showResetForm');
+});
