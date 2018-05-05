@@ -1,18 +1,26 @@
-
+    
 @extends('layouts.master')
 @section('title','Home')
 @section('home','active')
 
 @section('content')
-    <!-- Page Content -->
+    <!-- Page Content -->             
     <div class="container">
 
       <div class="row">
 
         <div class="col-lg-3">
-
-          <h1 class="my-4">Supir</h1>
+          <br><br>
           <div class="list-group">
+
+            <a href="#" class="list-group-item">
+              <label>Pekerjaan : </label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Supir</option>
+                <option>Pembantu</option>
+                <option>Satpam</option>
+              </select>
+            </a>
             <a href="#" class="list-group-item">
               <label>Domisili : </label>
               <select class="form-control" id="exampleFormControlSelect1">
@@ -49,7 +57,8 @@
               <select class="form-control" id="exampleFormControlSelect1">
                 <Option>Semua</Option>
                 <option>Menikah</option>
-                <option>Belum Menikah</option>
+                <option>Lajang</option>
+                <option>Janda/Duda</option>
               </select>
             </a>
             <a href="#" class="list-group-item">
@@ -108,14 +117,14 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">Hilmi Raditya</a>
+                    <a href="#">Ismail Syarief (22)</a>
                   </h4>
                   <p class="text-muted">Pengalaman Kerja :</p>
                   <h5>10 Tahun</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                  <p class="card-text">Performa kerja yang luar biasa sebagai supir pribadi</p>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <div class="card-footer" style="text-align: center;">
+                  <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
                 </div>
               </div>
             </div>
@@ -202,7 +211,28 @@
 
           </div>
           <!-- /.row -->
-
+          <div style="background-color:red;">
+          <ul class="next">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </ul>
+          </nav>
+        </div>
         </div>
         <!-- /.col-lg-9 -->
 

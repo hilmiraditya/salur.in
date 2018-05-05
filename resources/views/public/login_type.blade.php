@@ -18,27 +18,30 @@
 
             <div class="col-lg-4 col-md-6 mb-4 role_card">
               <div class="card h-100">
-                <a href="/pekerja/login"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="/pekerja/login"><img class="card-img-top" src="{{ url('images/foto1.jpg') }}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">Pekerja</h4>
+                  <a>Temukan Agency yang sesuai dengan tunjangan kerja yang baik</a>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4 role_card">
               <div class="card h-100">
-                <a href="/agency/login"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="/agency/login"><img class="card-img-top" src="{{ url('images/foto4.jpg') }}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">Agency</h4>
+                  <a>Temukan pekerja yang cocok untuk direkrut dan salurkan pekerja kepada majikan.</a>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4 role_card">
               <div class="card h-100">
-                <a href="/login"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="/login"><img class="card-img-top" src="{{ url('images/foto5.jpg') }}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title ">Majikan</h4>
+                  <a>Temukan Pekerja dari Agency yang baik dan terpercaya.</a>
                 </div>
               </div>
             </div>                        

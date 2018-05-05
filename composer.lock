@@ -330,7 +330,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hesto/core/zipball/07b36001fa70aecb8b1d114ad481023aaf21de4f",
+                "url": "https://files.phpcomposer.com/files/Hesto/core/07b36001fa70aecb8b1d114ad481023aaf21de4f.zip",
                 "reference": "07b36001fa70aecb8b1d114ad481023aaf21de4f",
                 "shasum": ""
             },
@@ -366,7 +366,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hesto/multi-auth/zipball/9131a17e884ec26200fe33527d1eb5c830b9316d",
+                "url": "https://files.phpcomposer.com/files/Hesto/multi-auth/9131a17e884ec26200fe33527d1eb5c830b9316d.zip",
                 "reference": "9131a17e884ec26200fe33527d1eb5c830b9316d",
                 "shasum": ""
             },

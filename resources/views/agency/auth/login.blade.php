@@ -4,8 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+            <div class="panel panel-default"><div class="card h-100">
+                <a href="/agency/login"><img class="card-img-top" src="{{ url('images/foto4.jpg') }}" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">Login Agency</h4>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/agency/login') }}">
                         {{ csrf_field() }}
@@ -60,6 +62,8 @@
                             </div>
                         </div>
                     </form>
+                                    </div>
+              </div>
                 </div>
             </div>
         </div>
