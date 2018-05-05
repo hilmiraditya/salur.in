@@ -39,12 +39,35 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapMajikanRoutes();
+
         $this->mapPekerjaRoutes();
 
         $this->mapAgencyRoutes();
 
         //
     }
+
+    /**
+     * Define the "agency" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapMajikanRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'majikan', 'auth:majikan'],
+            'prefix' => 'majikan',
+            'as' => 'majikan.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/majikan.php');
+        });
+    }
+
+
 
     /**
      * Define the "agency" routes for the application.

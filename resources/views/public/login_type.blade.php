@@ -36,7 +36,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4 role_card">
               <div class="card h-100">
-                <a href="/login"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="/majikan/login"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title ">Majikan</h4>
                 </div>

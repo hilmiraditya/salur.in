@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'majikan' => [
+            'driver' => 'session',
+            'provider' => 'majikans',
+        ],
+
         'pekerja' => [
             'driver' => 'session',
             'provider' => 'pekerjas',
@@ -75,6 +80,11 @@ return [
     */
 
     'providers' => [
+        'majikans' => [
+            'driver' => 'eloquent',
+            'model' => App\Majikan::class,
+        ],
+
         'pekerjas' => [
             'driver' => 'eloquent',
             'model' => App\Pekerja::class,
@@ -112,6 +122,12 @@ return [
     */
 
     'passwords' => [
+        'majikans' => [
+            'provider' => 'majikans',
+            'table' => 'majikan_password_resets',
+            'expire' => 60,
+        ],
+
         'pekerjas' => [
             'provider' => 'pekerjas',
             'table' => 'pekerja_password_resets',
