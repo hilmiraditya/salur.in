@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('public.layouts.master')
 @section('title','About')
 @section('masuk','active')
 @section('content')
@@ -38,11 +38,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4 role_card">
               <div class="card h-100">
-<<<<<<< HEAD
                 <a href="/login"><img class="card-img-top" src="{{ url('images/foto5.jpg') }}" alt=""></a>
-=======
-                <a href="/majikan/login"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
->>>>>>> 969c840230c9b3c4eb82e6158f2fe43eda5877d8
                 <div class="card-body">
                   <h4 class="card-title ">Majikan</h4>
                   <a>Temukan Pekerja dari Agency yang baik dan terpercaya.</a>

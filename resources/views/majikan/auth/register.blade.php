@@ -1,4 +1,4 @@
-@extends('majikan.layout.auth')
+@extends('public.layouts.master')
 
 @section('content')
 <div class="container">

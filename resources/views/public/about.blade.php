@@ -1,5 +1,5 @@
 
-@extends('layouts.master')
+@extends('public.layouts.master')
 @section('title','About')
 @section('about','active')
 

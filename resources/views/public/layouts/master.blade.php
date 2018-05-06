@@ -20,7 +20,7 @@
   </head>
 
   <body>
-  @include('include.header')
+  @include('public.include.header')
 
   @yield('content')
 

@@ -1,17 +1,19 @@
-{{-- @extends('pekerja.layout.auth') --}}
-@extends('layouts.master');
+@extends('public.layouts.master')
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <br><br><br>
+            <div class="panel panel-default"><div class="card h-100">
+                <a href="/pekerja/login"><img class="card-img-top" src="{{ url('images/foto1.jpg') }}" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">Login Pekerja</h4>
+                    <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/pekerja/login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">Alamat Email</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
@@ -42,7 +44,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> Remember Me
+                                        <input type="checkbox" name="remember"> Remember
                                     </label>
                                 </div>
                             </div>
@@ -53,20 +55,22 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-
                                 <a class="btn btn-link" href="{{ url('/pekerja/password/reset') }}">
-                                    Forgot Your Password?
+                                    Lupa Password
                                 </a>
                                 <a class="btn btn-link" href="{{ url('pekerja/register') }}">
-                                    Register
-                                </a>                                
-
+                                    Registrasi
+                                </a>
                             </div>
                         </div>
                     </form>
+                    </div>
+                    </div>
                 </div>
             </div>
+            <br><br><br>
         </div>
     </div>
 </div>
+
 @endsection

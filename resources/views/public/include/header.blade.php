@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item @yield('home')">
-              <a class="nav-link" href="/">Beranda
+              <a class="nav-link" href="/">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item @yield('about')">
-              <a class="nav-link" href="/tentang">Tentang</a>
+              <a class="nav-link" href="/tentang">About</a>
             </li>
             <li class="nav-item @yield('masuk')">
                 @guest
-                  <a class="nav-link" href="/login_type">Masuk</a>
+                  <a class="nav-link" href="/login_type">Login</a>
                 @else
                     <li class="dropdown nav-link" id="user-btn">
                         <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

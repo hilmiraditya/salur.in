@@ -1,20 +1,21 @@
-@extends('agency.layout.auth')
-
-@section('content')
+{{-- @extends('agency.layout.auth') --}}
+@extends('public.layouts.master')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <br><br><br>
+            <div class="panel panel-default"><div class="card h-100">
+                <a href="/agency/login"><img class="card-img-top" src="{{ url('images/foto4.jpg') }}" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">Login Agency</h4>
+                    <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/agency/password/reset') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail Address test percoban</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" autofocus>
@@ -62,8 +63,11 @@
                             </div>
                         </div>
                     </form>
+                    </div>
+                    </div>
                 </div>
             </div>
+            <br><br><br>
         </div>
     </div>
 </div>
