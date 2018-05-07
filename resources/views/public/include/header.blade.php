@@ -18,25 +18,16 @@
             <li class="nav-item @yield('about')">
               <a class="nav-link" href="/tentang">About</a>
             </li>
-            <li class="nav-item @yield('masuk')">
-                @guest
+            <li class="nav-item @yield('masuk')">                
+              @if(session()->has('role') == 'pekerja')
+                <a class="nav-link" href="/login_type">Profile <i class="fas fa-users"></i></a>
+              @elseif(session()->has('role') == 'majikan')
+                <a class="nav-link" href="/login_type">Profile <i class="fas fa-users"></i></a>
+              @elseif(session()->has('role') == 'agency')
+                <a class="nav-link" href="/login_type">Profile <i class="fas fa-users"></i></a>
+              @else
                   <a class="nav-link" href="/login_type">Login</a>
-                @else
-                    <li class="dropdown nav-link" id="user-btn">
-                        <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                        {{ Auth::Agency()->name }} <span class="caret"></span></a>
-
-                        <ul class="dropdown-menu">
-                            <li class="nav-link">
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">Logout</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}</form>
-                            </li>
-                        </ul>
-                    </li>
-                @endguest
+              @endif
             </li>
           </ul>
         </div>

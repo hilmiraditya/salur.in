@@ -10,3 +10,11 @@ Route::get('/home', function () {
     return view('pekerja.home');
 })->name('home');
 
+Route::get('/login_type', function() {
+    if (Auth::guest()) {
+    	return view('public.login_type');
+    }
+    elseif (condition) {
+    	return view('pekerja.home');
+    }
+});

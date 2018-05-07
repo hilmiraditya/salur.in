@@ -18,7 +18,7 @@ class RedirectIfNotPekerja
 	public function handle($request, Closure $next, $guard = 'pekerja')
 	{
 	    if (!Auth::guard($guard)->check()) {
-	        return redirect('pekerja/login');
+	        return redirect('/login_type');
 	    }
 
 	    return $next($request);

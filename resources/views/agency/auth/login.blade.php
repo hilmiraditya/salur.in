@@ -1,5 +1,6 @@
 {{-- @extends('agency.layout.auth') --}}
 @extends('public.layouts.master')
+@section('masuk','active')
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">

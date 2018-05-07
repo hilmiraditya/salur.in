@@ -58,6 +58,8 @@ class LoginController extends Controller
      */
     protected function guard()
     {
+        $value = 'majikan';
+        session()->put('role', $value);        
         return Auth::guard('majikan');
     }
 }

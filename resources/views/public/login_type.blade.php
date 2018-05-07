@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url('css/style.css') }}">
     <!-- Page Content -->
-    <h3 align="center" id="login_title">Login Sebagai?</h3>
+    <h3 align="center" id="login_title">Pilih Akun Mu</h3>
     <div class="container" id="login_type">
 
       <div class="row">

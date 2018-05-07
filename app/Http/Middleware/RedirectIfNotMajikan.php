@@ -18,7 +18,7 @@ class RedirectIfNotMajikan
 	public function handle($request, Closure $next, $guard = 'majikan')
 	{
 	    if (!Auth::guard($guard)->check()) {
-	        return redirect('majikan/login');
+	        return redirect('/login_type');
 	    }
 
 	    return $next($request);

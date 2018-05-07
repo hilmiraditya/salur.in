@@ -1,14 +1,14 @@
 @extends('public.layouts.master')
-
+@section('masuk','active')
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
             <br><br><br>
             <div class="panel panel-default"><div class="card h-100">
-                <a href="/agency/login"><img class="card-img-top" src="{{ url('images/foto1.jpg') }}" alt=""></a>
+                <a href="/agency/login"><img class="card-img-top" src="{{ url('images/foto5.jpg') }}" alt=""></a>
                 <div class="card-body">
-                  <h4 class="card-title">Login Agency</h4>
+                  <h4 class="card-title">Login Majikan</h4>
                     <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/majikan/login') }}">
                         {{ csrf_field() }}

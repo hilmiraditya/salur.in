@@ -12,7 +12,6 @@
 */
 
 //ROUTE TANPA CONTROLLER TARO SINI YA//
-
 Route::get('/', function () {
     return view('public.home');
 });
@@ -25,14 +24,22 @@ Route::get('/tentang', function () {
     return view('public.about');
 });
 
-Route::get('/login_type', function () {
-    return view('public.login_type');
-});
+// Route::get('/login_type', function () {
+//     return view('public.login_type');
+// });
 
-//ROUTE TANPA CONTROLLER TARO SINI YA//
-Auth::routes();
+//ROUTE DENGAN CONTROLLER TARO SINI YA//
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login_type', 'PagesController@login_type');
+
+
+
+
+
+//=============================================================//
 
 Route::group(['prefix' => 'agency'], function () {
   Route::get('/login', 'AgencyAuth\LoginController@showLoginForm')->name('login');

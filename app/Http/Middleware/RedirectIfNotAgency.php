@@ -18,7 +18,7 @@ class RedirectIfNotAgency
 	public function handle($request, Closure $next, $guard = 'agency')
 	{
 	    if (!Auth::guard($guard)->check()) {
-	        return redirect('agency/login');
+	        return redirect('/login_type');
 	    }
 
 	    return $next($request);

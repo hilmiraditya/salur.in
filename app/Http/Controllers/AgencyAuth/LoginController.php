@@ -48,6 +48,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+
         return view('agency.auth.login');
     }
 
@@ -58,6 +59,8 @@ class LoginController extends Controller
      */
     protected function guard()
     {
+        $value = 'agency';
+        session()->put('role', $value);
         return Auth::guard('agency');
     }
 }
