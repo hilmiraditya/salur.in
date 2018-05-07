@@ -38,7 +38,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4 role_card">
               <div class="card h-100">
-                <a href="/login"><img class="card-img-top" src="{{ url('images/foto5.jpg') }}" alt=""></a>
+                <a href="/majikan/login"><img class="card-img-top" src="{{ url('images/foto5.jpg') }}" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title ">Majikan</h4>
                   <a>Temukan Pekerja dari Agency yang baik dan terpercaya.</a>
