@@ -3,6 +3,7 @@
 @section('title','About')
 @section('masuk','active')
 @section('content')
+
 <link rel="stylesheet" type="text/css" href="{{ url('css/style.css') }}">
     <!-- Page Content -->
     <h3 align="center" id="login_title">Login Sebagai?</h3>
