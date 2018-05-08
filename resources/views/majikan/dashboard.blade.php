@@ -15,9 +15,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Auth::user()->name}}
-                    <br>
-                    EDIT POFILE
+
+                    DASHBOARD MAJIKAN
                 </div>
             </div>
         </div>

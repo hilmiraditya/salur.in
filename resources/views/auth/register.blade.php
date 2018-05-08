@@ -145,15 +145,15 @@
 
                             <div class="form-group form-inline" style="margin: 2rem auto 2rem 1rem">
                                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" checked="">
+                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="M" checked="">
                                     <label class="custom-control-label" for="customRadio1">Majikan</label>
                                 </div>
                                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
-                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2">
+                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="P">
                                     <label class="custom-control-label" for="customRadio2">Pekerja</label>
                                 </div>
                                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
-                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3">
+                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="A">
                                     <label class="custom-control-label" for="customRadio3">Agency</label>
                                 </div>
                             </div>

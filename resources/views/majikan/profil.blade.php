@@ -17,7 +17,7 @@
                     @endif
                     {{Auth::user()->name}}
                     <br>
-                    EDIT POFILE
+                    PROFILE MAJIKAn
                 </div>
             </div>
         </div>

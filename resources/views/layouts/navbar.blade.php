@@ -79,6 +79,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li class="nav-link"><a class="nav-item" href="/home">Profile</a></li>
                                     <li class="nav-link">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -90,8 +91,11 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
+
+
                         @endguest
             </li>
           </ul>

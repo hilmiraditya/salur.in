@@ -16,7 +16,7 @@ class Pekerja
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == 2) {
+        if (Auth::check() && Auth::user()->role == 'P') {
             return $next($request);
         }
 

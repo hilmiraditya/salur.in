@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Pekerja
+class Majikan
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Pekerja
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role == 3) {
+        if (Auth::check() && Auth::user()->role == 'M') {
             return $next($request);
         }
 

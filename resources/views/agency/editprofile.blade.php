@@ -15,7 +15,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Auth::user()->name}}
+                     {{Auth::user()->name}}
                     <br>
                     EDIT POFILE
                 </div>

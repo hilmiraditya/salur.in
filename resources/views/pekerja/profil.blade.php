@@ -15,8 +15,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    PROFILE
+                    {{Auth::user()->name}}
+                    <br>
+                    PROFILE PEKERJA
                 </div>
             </div>
         </div>

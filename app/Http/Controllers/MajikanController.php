@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class MajikanController extends Controller
 {
@@ -21,6 +23,7 @@ class MajikanController extends Controller
     public function index()
     {
         //
+        return view('majikan.profil');
     }
 
     /**

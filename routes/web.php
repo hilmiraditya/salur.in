@@ -20,3 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('pekerja/editprofil', 'PekerjaController@index');
+
+
+Route::get('majikan/editprofil', 'MajikanController@index');
+
+Route::get('agency/editprofil', 'AgencyController@index');
