@@ -19,6 +19,7 @@
               <a class="nav-link" href="/tentang">About</a>
             </li>
             <li class="nav-item @yield('masuk')">                
+{{-- 
               @if(session()->has('role') == 'pekerja')
                 <a class="nav-link" href="/login_type">Profile <i class="fas fa-users"></i></a>
               @elseif(session()->has('role') == 'majikan')
@@ -28,6 +29,28 @@
               @else
                   <a class="nav-link" href="/login_type">Login</a>
               @endif
+ --}}           
+              @if (Auth::guest())
+                
+                <a class="nav-link" href="/login_type">Profilsade <i class="fas fa-users"></i></a>
+                {{Auth::user()->name}}
+                @else
+                    <li class="dropdown nav-link" id="user-btn">
+                        <a href="#" class="dropdown-toggle nav-item" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-link">
+                                <a href="{{ url('/pekerja/logout') }}"
+                                    onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">Logout</a>
+                                <form id="logout-form" action="{{ url('/pekerja/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}</form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif          
+
+
             </li>
           </ul>
         </div>

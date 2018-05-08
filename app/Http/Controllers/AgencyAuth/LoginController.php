@@ -59,8 +59,11 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        $value = 'agency';
-        session()->put('role', $value);
+        // if (Auth::check()) {
+        //     $value = 'agency';
+        //     session()->put('role', $value);
+        // }
+
         return Auth::guard('agency');
     }
 }
