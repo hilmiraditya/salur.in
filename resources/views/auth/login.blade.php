@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('masuk','active')
 {{-- 
 @section('content')
 <div class="container">

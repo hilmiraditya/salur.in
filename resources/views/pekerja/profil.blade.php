@@ -16,7 +16,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    PROFILE
                 </div>
             </div>
         </div>
