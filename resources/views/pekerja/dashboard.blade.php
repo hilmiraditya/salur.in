@@ -12,7 +12,6 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
               <div class="card-header">Profile</div>
               <div class="card-body">
-
               </div>
             </div>            
         </div>
