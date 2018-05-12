@@ -10,8 +10,12 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Profile</div>
+              <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
+                <img src="">
+                <h6 align="center">{{Auth::user()->name}}</h6>
+                <p class="card-text" align="center">{{Auth::user()->email}}</p>
+
               </div>
             </div>            
         </div>

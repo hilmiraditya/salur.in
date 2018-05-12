@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AgencyController extends Controller
 {
@@ -20,7 +21,7 @@ class AgencyController extends Controller
     public function index()
     {
         //
-        return view('agency.profil');
+        return view('agency.profil',compact('DataAgency'));
     }
 
     /**
@@ -42,6 +43,8 @@ class AgencyController extends Controller
     public function store(Request $request)
     {
         //
+
+
     }
 
     /**

@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->role == 'A'){
-            
+
             return view('agency.dashboard');
         }elseif (Auth::user()->role == 'M') {
             
