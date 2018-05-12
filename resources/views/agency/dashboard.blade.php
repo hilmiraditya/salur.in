@@ -4,6 +4,7 @@
 
 <br><br><br>
 <div class="container">
+
     <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
     <br>
     <hr>
@@ -14,8 +15,8 @@
               <div class="card-body">
                 <img src="">
                 <h6 align="center">{{Auth::user()->name}}</h6>
-                <p class="card-text" align="center">{{Auth::user()->email}}</p>
-
+                <p class="card-text" align="center">{{Auth::user()->email}}</p> 
+                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
               </div>
             </div>            
         </div>
@@ -39,4 +40,43 @@
         </div>        
     </div>
 </div>
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <br><br>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="myModalLabel">Edit Profil</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ url('/DataAgen') }}">
+          <div class="form-group" >
+            {{ csrf_field() }}
+            <label class="col-form-label" for="inputDefault">Nama</label>
+            <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
+            <label class="col-form-label" for="inputDefault">Email</label>
+            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
+            <label class="col-form-label" for="inputDefault">No. Telp</label>
+            <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
+            <label class="col-form-label" for="inputDefault">Alamat</label>
+            <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
+            <label class="col-form-label" for="inputDefault">Website</label>
+            <input type="text" class="form-control" placeholder="Website" name="A_website" id="inputDefault" value="{{Auth::user()->A_website}}">
+            <label class="col-form-label" for="inputDefault">Deskripsi</label>
+            <input type="text" class="form-control" placeholder="Deskripsi" name="A_deskripsi" id="inputDefault" value="{{Auth::user()->A_deskripsi}}">
+          </div>
+          <button type="submit" class="btn btn-md btn-primary">Save changes</button>
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection

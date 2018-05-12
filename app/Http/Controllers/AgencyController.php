@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class AgencyController extends Controller
@@ -16,7 +17,8 @@ class AgencyController extends Controller
     {
         $this->middleware('agency');
     }
-    
+
+
 
     public function index()
     {
@@ -42,8 +44,7 @@ class AgencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
+        //        
 
     }
 
@@ -76,9 +77,24 @@ class AgencyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $user = Auth::id();
+        // dd($user);
+        $DataAgency = array(
+            'nama' => $request->input('nama'),
+            'email' => $request->input('email'),
+            'telepon' => $request->input('telepon'),
+            'alamat' => $request->input('alamat'),
+            'A_website' => $request->input('A_website'),
+            'A_deskripsi' => $request->input('A_deskripsi')
+        );
+
+        User::find($user)->update($DataAgency);
+
+        return redirect('/home');
+
     }
 
     /**

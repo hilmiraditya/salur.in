@@ -29,3 +29,5 @@ Route::get('pekerja/editprofil', 'PekerjaController@index');
 Route::get('majikan/editprofil', 'MajikanController@index');
 
 Route::get('agency/editprofil', 'AgencyController@index');
+
+Route::post('/DataAgen', 'AgencyController@update');
