@@ -4,7 +4,7 @@
 
 <br><br><br>
 <div class="container">
-    <h3 align="center">Dashboard {{Auth::user()->name}}</h3>
+    <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
     <br>
     <hr>
     <div class="row">

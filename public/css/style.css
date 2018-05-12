@@ -35,11 +35,11 @@
 
 }
 
-.role_card{
+.hover_up{
 	transition: transform 1.2s ease-out;	
 }
 
-.role_card:hover{
+.hover_up:hover{
 	transition: transform 0.9s ease;
-	transform: scale(1.095);	
+	transform: scale(1.065);	
 }

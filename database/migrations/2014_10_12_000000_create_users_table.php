@@ -32,18 +32,20 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             //atribut Pekerja Only
-            $table->string('status')->nullable(true);
-            $table->string('domisili')->nullable(true);
-            $table->string('kelahiran')->nullable(true);
-            $table->text('pengalaman')->nullable(true);
-            $table->text('ulasan')->nullable(true);
-            $table->string('ulasan')->nullable(true);
-            $table->char('skill',2)->nullable(true);
+            $table->string('P_status')->nullable(true);
+            $table->string('P_domisili')->nullable(true);
+            $table->string('P_kelahiran')->nullable(true);
+            $table->text('P_pengalaman')->nullable(true);
+            $table->string('P_keahlian')->nullable(true);
+            $table->string('P_penyalur')->nullable(true);
+            $table->char('P_ketersediaan',2)->nullable(true);
+
             
             //atribut Agen Only
-            $table->string('ulasan')->nullable(true);
+            $table->string('A_website')->nullable(true);            
+            $table->string('A_deskripsi')->nullable(true);
             
-            //atribut Majikan Only
+
         });
     }
 

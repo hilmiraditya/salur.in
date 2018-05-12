@@ -7,5 +7,5 @@
   @if(Auth::user()->role == 'P')
     @include('cari_agen')
   @endif
-  @include('cari_pekerja')
+  	@include('cari_pekerja')
 @endguest
