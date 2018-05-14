@@ -13,9 +13,16 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
-                <img src="">
-                <h6 align="center">{{Auth::user()->name}}</h6>
-                <p class="card-text" align="center">{{Auth::user()->email}}</p> 
+                <div class="form-group">
+                      <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto"> 
+                      <h5 align="center">{{Auth::user()->name}}</h5>
+                      <hr>
+                      <p class="lead ml-3">{{Auth::user()->alamat}}</p>
+                      <p class="lead ml-3">{{Auth::user()->telepon}}</p>
+                      <p class="lead ml-3"><a href="{{Auth::user()->website}}">{{Auth::user()->A_website}}</a></p>
+                      <p class="lead ml-3"><small>{{Auth::user()->A_deskripsi}}</small></p>
+                </div>
+                <hr>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
               </div>
             </div>            

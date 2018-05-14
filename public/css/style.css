@@ -43,3 +43,10 @@
 	transition: transform 0.9s ease;
 	transform: scale(1.065);	
 }
+
+
+.foto_profile{
+	border-radius: 900%;
+	display: block;
+	margin: 0.5rem auto 0.8rem auto;
+}
