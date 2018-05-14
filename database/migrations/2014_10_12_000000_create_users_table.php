@@ -44,6 +44,11 @@ class CreateUsersTable extends Migration
             //atribut Agen Only
             $table->string('A_website')->nullable(true);            
             $table->string('A_deskripsi')->nullable(true);
+
+
+            $table->string('M_kerjasama')->nullable(true);
+
+
             
 
         });
