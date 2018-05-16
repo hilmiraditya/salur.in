@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('pekerja/editprofil', 'PekerjaController@index');
+Route::get('pekerja/editprofil/{id}', 'PekerjaController@edit');
 
 
 Route::get('majikan/editprofil', 'MajikanController@index');
