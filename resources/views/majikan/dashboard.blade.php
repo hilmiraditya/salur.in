@@ -17,8 +17,10 @@
                       <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto"> 
                       <h5 align="center">{{Auth::user()->name}}</h5>
                       <hr>
-                      <p class="lead ml-3">{{Auth::user()->alamat}}</p>
                       <p class="lead ml-3">{{Auth::user()->telepon}}</p>
+                      <p class="lead ml-3">{{Auth::user()->email}}</p>
+                      <p class="lead ml-3">{{Auth::user()->alamat}}</p>
+                      
                 </div>
                 <hr>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
@@ -69,11 +71,11 @@
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
           </div>
-          <button type="submit" class="btn btn-md btn-primary">Save changes</button>
-        </form>
         
       </div>
       <div class="modal-footer">
+          <button type="submit" class="btn btn-md btn-primary">Save changes</button>
+        </form>
 
       </div>
     </div>

@@ -75,11 +75,11 @@
             <label class="col-form-label" for="inputDefault">Deskripsi</label>
             <input type="text" class="form-control" placeholder="Deskripsi" name="A_deskripsi" id="inputDefault" value="{{Auth::user()->A_deskripsi}}">
           </div>
-          <button type="submit" class="btn btn-md btn-primary">Save changes</button>
-        </form>
         
       </div>
       <div class="modal-footer">
+          <button type="submit" class="btn btn-md btn-primary">Save changes</button>
+        </form>
 
       </div>
     </div>

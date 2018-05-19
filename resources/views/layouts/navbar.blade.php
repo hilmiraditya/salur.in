@@ -79,8 +79,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li class="nav-link"><a class="nav-item" href="/home">Dashboard</a></li>
-                                    <li class="nav-link">
+                                    <li class="nav-link ml-3"><a class="nav-item" href="/home">Dashboard</a></li>
+                                    <li class="nav-link ml-3"><a class="nav-item text-muted" href="">Change Password</a></li>
+                                    <li class="nav-link ml-3">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -91,8 +92,8 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-
                                 </ul>
+
                             </li>
 
 
