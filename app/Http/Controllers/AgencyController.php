@@ -93,7 +93,8 @@ class AgencyController extends Controller
 
         User::find($user)->update($DataAgency);
 
-        return redirect('/home');
+        //return redirect('/home');
+        return redirect()->back()->with("success","Data Updated successfully !");
 
     }
 

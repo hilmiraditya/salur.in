@@ -80,7 +80,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li class="nav-link ml-3"><a class="nav-item" href="/home">Dashboard</a></li>
-                                    <li class="nav-link ml-3"><a class="nav-item text-muted" href="">Change Password</a></li>
+                                    <li class="nav-link ml-3"><a class="nav-item text-muted" href="/changepassword">Change Password</a></li>
                                     <li class="nav-link ml-3">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

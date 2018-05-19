@@ -74,9 +74,23 @@ class PekerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        //
+        $user = Auth::id();
+        // dd($user);
+        $DataPekerja = array(
+            'nama' => $request->input('nama'),
+            'email' => $request->input('email'),
+            'telepon' => $request->input('telepon'),
+            'alamat' => $request->input('alamat'),
+           
+        );
+
+        User::find($user)->update($DataPekerja);
+
+        return redirect('/home');        
     }
 
     /**

@@ -7,6 +7,16 @@
 
     <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
     <br>
+@if (session('error'))
+<div class="alert alert-danger">
+{{ session('error') }}
+</div>
+@endif
+@if (session('success'))
+<div class="alert alert-success">
+{{ session('success') }}
+</div>
+@endif
     <hr>
     <div class="row">
         <div class="col-md-4">
@@ -75,11 +85,10 @@
             <label class="col-form-label" for="inputDefault">Deskripsi</label>
             <input type="text" class="form-control" placeholder="Deskripsi" name="A_deskripsi" id="inputDefault" value="{{Auth::user()->A_deskripsi}}">
           </div>
-        
-      </div>
-      <div class="modal-footer">
+          <hr>
           <button type="submit" class="btn btn-md btn-primary">Save changes</button>
         </form>
+        
 
       </div>
     </div>

@@ -21,9 +21,12 @@ Route::get('/tentang', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/changepassword', 'HomeController@view_changepassword');
+Route::post('/changePassword','HomeController@changepassword')->name('changePassword');
 
 //Start--controller Pekerja
 Route::get('pekerja/editprofil/{id}', 'PekerjaController@edit');
+Route::post('/DataPekerja', 'PekerjaController@update');
 
 //End--controller Pekerja
 
