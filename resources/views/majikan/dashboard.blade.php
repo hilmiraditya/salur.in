@@ -43,11 +43,16 @@
             <div class="card bg-light mb-3" style="max-width: 30rem;">
               <div class="card-header">Terms & Agreement</div>
               <div class="card-body">
-                <h5 class="card-title">Light card title</h5>
+                <h5 class="card-title">Mohon Perhatian!</h5>
                 <ul>
-                  <li><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></li>
-                  <li><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></li>
-                  <li><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></li>
+                  <li><p class="card-text">Anda bisa mencari pekerja sesuai kriteria yang anda pilih.</p></li>
+                  <li><p class="card-text">setelah menemukan anda bisa kontak langsung dengan agen yang menaungi melalui telepon/email yang tertera.</p></li>
+                  <li><p class="card-text">pastikan pekerja yang anda pilih sudah memenuhi berkas wajib seperti : SK Agen, SK bebas narkotika, SK bebas kriminal.</p></li>
+                  <br>
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2" disabled="" checked="">
+                    <label class="custom-control-label" for="customCheck2">Saya telah membaca & setuju!</label>
+                  </div>                  
                 </ul>
                 
               </div>
