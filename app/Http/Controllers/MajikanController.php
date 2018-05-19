@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\User;
 
 class MajikanController extends Controller
 {
@@ -76,9 +76,20 @@ class MajikanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = Auth::id();
+        // dd($user);
+        $DataMajikan = array(
+            'nama' => $request->input('nama'),
+            'email' => $request->input('email'),
+            'telepon' => $request->input('telepon'),
+            'alamat' => $request->input('alamat'),
+        );
+
+        User::find($user)->update($DataMajikan);
+
+        return redirect('/home');
     }
 
     /**

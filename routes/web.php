@@ -22,12 +22,23 @@ Route::get('/tentang', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Start--controller Pekerja
 Route::get('pekerja/editprofil/{id}', 'PekerjaController@edit');
 
+//End--controller Pekerja
 
+//Start--controller Majikan
 Route::get('majikan/editprofil', 'MajikanController@index');
+Route::post('/DataMajikan', 'MajikanController@update');
 
+
+//End--controller Majikan
+
+
+
+//Start--controller Agen
 Route::get('agency/editprofil', 'AgencyController@index');
-
 Route::post('/DataAgen', 'AgencyController@update');
+
+
+//End--controller Agen
