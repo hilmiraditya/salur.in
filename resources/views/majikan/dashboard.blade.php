@@ -7,10 +7,22 @@
 
     <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
     <br>
+    {{-- alert --}}
+    @if (session('error'))
+    <div class="alert alert-danger">
+    {{ session('error') }}
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success">
+    {{ session('success') }}
+    </div>
+    @endif
+    {{-- end - alert --}}    
     <hr>
     <div class="row">
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
+        <div class="col-md-6">
+            <div class="card bg-light mb-3" style="max-width: 30rem;">
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
                 <div class="form-group">
@@ -27,24 +39,20 @@
               </div>
             </div>            
         </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Pekerja</div>
+        <div class="col-md-6">
+            <div class="card bg-light mb-3" style="max-width: 30rem;">
+              <div class="card-header">Terms & Agreement</div>
               <div class="card-body">
-                <h4 class="card-title">Light card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Light card title</h5>
+                <ul>
+                  <li><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></li>
+                  <li><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></li>
+                  <li><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></li>
+                </ul>
+                
               </div>
             </div>            
         </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Status</div>
-              <div class="card-body">
-                <h4 class="card-title">Light card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>            
-        </div>        
     </div>
 </div>
 
@@ -71,12 +79,10 @@
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
           </div>
-        
-      </div>
-      <div class="modal-footer">
+          <hr>
           <button type="submit" class="btn btn-md btn-primary">Save changes</button>
         </form>
-
+        
       </div>
     </div>
   </div>

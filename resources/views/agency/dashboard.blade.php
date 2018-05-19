@@ -7,6 +7,8 @@
 
     <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
     <br>
+
+{{-- alert --}}
 @if (session('error'))
 <div class="alert alert-danger">
 {{ session('error') }}
@@ -17,6 +19,8 @@
 {{ session('success') }}
 </div>
 @endif
+{{-- end - alert --}}
+
     <hr>
     <div class="row">
         <div class="col-md-4">

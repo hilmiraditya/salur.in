@@ -3,25 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
-class PekerjaController extends Controller
+class ShowController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('pekerja');
-    }
-
-
     public function index()
     {
-        return view('pekerja.profil');
+        //
     }
 
     /**
@@ -64,7 +59,7 @@ class PekerjaController extends Controller
      */
     public function edit($id)
     {
-        return view('pekerja.editprofile');
+        //
     }
 
     /**
@@ -74,24 +69,9 @@ class PekerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         //
-        //
-        $user = Auth::id();
-        // dd($user);
-        $DataPekerja = array(
-            'nama' => $request->input('nama'),
-            'email' => $request->input('email'),
-            'telepon' => $request->input('telepon'),
-            'alamat' => $request->input('alamat'),
-           
-        );
-
-        User::find($user)->update($DataPekerja);
-
-        //return redirect('/home');        
-        return redirect()->back()->with("success","Data Updated successfully !");
     }
 
     /**
@@ -103,5 +83,18 @@ class PekerjaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showall(){
+        if (Auth::guest()) {
+            $pekerja = User::all()->where('role','P');
+        }
+        elseif (Auth::user()->role == 'M') {
+            $pekerja = User::all()->where('role','P');
+               
+        }
+        
+        
+        return view('welcome',['pekerja'=> $pekerja]);
     }
 }

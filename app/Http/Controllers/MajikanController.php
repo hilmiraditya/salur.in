@@ -89,7 +89,8 @@ class MajikanController extends Controller
 
         User::find($user)->update($DataMajikan);
 
-        return redirect('/home');
+        //return redirect('/home');
+        return redirect()->back()->with("success","Data Updated successfully !");        
     }
 
     /**

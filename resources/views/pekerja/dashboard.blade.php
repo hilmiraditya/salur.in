@@ -7,6 +7,18 @@
 
     <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
     <br>
+    {{-- alert --}}
+    @if (session('error'))
+    <div class="alert alert-danger">
+    {{ session('error') }}
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success">
+    {{ session('success') }}
+    </div>
+    @endif
+    {{-- end - alert --}}
     <hr>
     <div class="row">
         <div class="col-md-4">
@@ -72,12 +84,10 @@
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
           </div>
-        
-      </div>
-      <div class="modal-footer">
+          <hr>
           <button type="submit" class="btn btn-md btn-primary">Save changes</button>
         </form>
-
+        
       </div>
     </div>
   </div>

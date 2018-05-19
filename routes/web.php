@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/tentang', function () {
     return view('about');
@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/changepassword', 'HomeController@view_changepassword');
 Route::post('/changePassword','HomeController@changepassword')->name('changePassword');
+
+Route::get('/', 'ShowController@showall');
 
 //Start--controller Pekerja
 Route::get('pekerja/editprofil/{id}', 'PekerjaController@edit');
