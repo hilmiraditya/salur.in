@@ -23,7 +23,9 @@ class AgencyController extends Controller
     public function index()
     {
         //
+        
         return view('agency.profil',compact('DataAgency'));
+
     }
 
     /**

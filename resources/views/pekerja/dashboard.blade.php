@@ -25,14 +25,31 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
-                <div class="form-group">
-                      <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto"> 
-                      <h5 align="center">{{Auth::user()->name}}</h5>
-                      <hr>
-                      <p class="lead ml-3">{{Auth::user()->telepon}}</p>
-                      <p class="lead ml-3">{{Auth::user()->email}}</p>
-                      <p class="lead ml-3">{{Auth::user()->alamat}}</p>
-                      
+                <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                <h5 align="center">{{Auth::user()->name}}</h5>
+                <table class="table table-borderless">
+                  <tr>
+                    <th>No. Telepon</th>
+                    <td>{{Auth::user()->telepon}}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{Auth::user()->email}}</td>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <td>{{Auth::user()->alamat}}</td>
+                  </tr>
+                  <tr>
+                    <th>Punya Anak:</th>
+                    <td>Tidak</td>
+                  </tr>
+                  <tr>
+                    <th>Lokasi saat ini:</th>
+                    <td>Surabaya</td>
+                  </tr>                                    
+                </table>                            
+                <div class="form-group"> 
                 </div>
                 <hr>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
@@ -43,17 +60,38 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
               <div class="card-header">Detail</div>
               <div class="card-body">
-                <h4 class="card-title">Light card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <table class="table table-borderless">
+                  <tr>
+                    <th>Gaji / Bulan:</th>
+                    <td>Rp.2.000.000</td>
+                  </tr>
+                  <tr>
+                    <th>Menginap:</th>
+                    <td>Ya</td>
+                  </tr>
+                  <tr>
+                    <th>Status:</th>
+                    <td>Belum Menikah</td>
+                  </tr>
+                  <tr>
+                    <th>Punya Anak:</th>
+                    <td>Tidak</td>
+                  </tr>
+                  <tr>
+                    <th>Lokasi saat ini:</th>
+                    <td>Surabaya</td>
+                  </tr>                                    
+                </table>                
               </div>
             </div>            
         </div>
         <div class="col-md-4">
             <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Control</div>
+              <div class="card-header">Kontrol Akun</div>
               <div class="card-body">
-                <h4 class="card-title">Light card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <form >
+                    
+                </form>
               </div>
             </div>            
         </div>        

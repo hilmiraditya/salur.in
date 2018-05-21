@@ -28,13 +28,32 @@
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
                 <div class="form-group">
-                      <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto"> 
-                      <h5 align="center">{{Auth::user()->name}}</h5>
-                      <hr>
-                      <p class="lead ml-3">{{Auth::user()->alamat}}</p>
-                      <p class="lead ml-3">{{Auth::user()->telepon}}</p>
-                      <p class="lead ml-3"><a href="{{Auth::user()->website}}">{{Auth::user()->A_website}}</a></p>
-                      <p class="lead ml-3"><small>{{Auth::user()->A_deskripsi}}</small></p>
+                <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                <h5 align="center">{{Auth::user()->name}}</h5>
+                <hr>
+                <table class="table table-borderless">
+                  <tr>
+                    <th>No. Telepon</th>
+                    <td>{{Auth::user()->telepon}}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{Auth::user()->email}}</td>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <td>{{Auth::user()->alamat}}</td>
+                  </tr>
+                  <tr>
+                    <th>Website</th>
+                    <td>{{Auth::user()->A_website}}</td>
+                  </tr>
+                  <tr>
+                    <th>Deskripsi</th>
+                    <td>{{Auth::user()->A_deskripsi}}</td>
+                  </tr>                                    
+                </table>                            
+
                 </div>
                 <hr>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>

@@ -91,9 +91,14 @@ class ShowController extends Controller
         }
         elseif (Auth::user()->role == 'M') {
             $pekerja = User::all()->where('role','P');
-               
         }
-        
+        elseif (Auth::user()->role == 'P') {
+            $pekerja = User::all()->where('role','A');
+        }
+        elseif (Auth::user()->role == 'A') {
+            $pekerja = User::all()->where('role','P');
+        }        
+
         
         return view('welcome',['pekerja'=> $pekerja]);
     }

@@ -29,9 +29,21 @@
                       <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto"> 
                       <h5 align="center">{{Auth::user()->name}}</h5>
                       <hr>
-                      <p class="lead ml-3">{{Auth::user()->telepon}}</p>
-                      <p class="lead ml-3">{{Auth::user()->email}}</p>
-                      <p class="lead ml-3">{{Auth::user()->alamat}}</p>
+                <table class="table table-borderless">
+                  <tr>
+                    <th>No. Telepon</th>
+                    <td>{{Auth::user()->telepon}}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>{{Auth::user()->email}}</td>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <td>{{Auth::user()->alamat}}</td>
+                  </tr>
+                </table>                            
+
                       
                 </div>
                 <hr>
