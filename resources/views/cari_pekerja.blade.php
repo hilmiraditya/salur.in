@@ -131,8 +131,8 @@
                   <h4 class="card-title">
                     <a href="#">{{ $data->name}}</a>
                   </h4>
-                  <p class="text-muted">Pengalaman Kerja :</p>
-                  <h5>10 Tahun</h5>
+                  <p class="text-muted">Agen :</p>
+                  <h5>{{ $data->P_penyalur}}</h5>
                   <p class="card-text">Performa kerja yang luar biasa sebagai supir pribadi</p>
                 </div>
                 <div class="card-footer" style="text-align: center;">

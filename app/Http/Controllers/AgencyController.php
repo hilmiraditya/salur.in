@@ -27,6 +27,7 @@ class AgencyController extends Controller
 
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -108,8 +109,57 @@ class AgencyController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
     }
+
+    public function delete_staff($id)
+    {
+
+        $DataPekerja = array(
+            'P_penyalur' => NULL
+        );
+
+        User::find($id)->update($DataPekerja);
+        return redirect()->back()->with("success","Anggota Terhapus!");        
+
+    }    
+
+
+    public function detail_pekerja($id)
+    {
+
+        $dataid = User::all()->where('id',$id);
+        // dd($dataid);
+        return view('agency.detail_pekerja',['dataid' => $dataid]);
+
+    }
+
+    public function save_detail_pekerja(Request $request, $id)
+    {
+        //echo $id;
+
+        $detail_pekerja = array(
+
+            'P_pengalaman' => $request->input('pengalaman'),
+            'P_status' => $request->input('status'),
+            'P_anak' => $request->input('anak'),
+            'P_menginap' => $request->input('menginap'), 
+            'P_anjing' => $request->input('anjing'),
+            'P_pendidikan' => $request->input('pendidikan'),
+            'P_gaji' => $request->input('gaji'),
+            'P_bahasa' => $request->input('bahasa'),
+            'P_keahlian' => $request->input('keterampilan'),
+            'P_bisabekerjadi' => $request->input('kerjadi')
+
+        );
+
+        //dd($detail_pekerja);
+        User::find($id)->update($detail_pekerja);
+        return redirect()->back()->with("success","Detail ter Update!");
+
+    }
+
+
 
 
 }

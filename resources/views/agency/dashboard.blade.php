@@ -78,8 +78,8 @@
                     <td>{{$data->name}}</td>
                     <td></td>
                     <td>
-                      <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit</a>
-                      <a href="/delete/{{$data->id}}" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#basicModal">Hapus</a>
+                      <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" >Edit</a>
+                      <a href="/hapus/{{$data->id}}" class="btn btn-sm btn-danger">Hapus</a>
                     </td>
                   </tr>
                   @endforeach
@@ -161,6 +161,97 @@
     </div>
   </div>
 </div>
+
+
+{{-- <div class="modal fade" id="basicModal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <br><br>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="myModalLabel">Detail Profil</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ url('/DetailPekerja/{{ $data->id }}') }}">
+          <div class="form-group" >
+            {{ csrf_field() }}
+            <label class="col-form-label" for="inputDefault">Tahun Pengalaman</label>
+            <div class="form-group">
+              <select class="custom-select" name="pengalaman">
+                <option selected="">Lama Tahun</option>
+                <option value="0 Tahun">0 Tahun</option>
+                <option value="1 Tahun">1 Tahun</option>
+                <option value="2 Tahun">2 Tahun</option>
+                <option value="3 Tahun">3 Tahun</option>
+                <option value="4 Tahun">4 Tahun</option>
+                <option value="5 Tahun">5 Tahun</option>
+                <option value="6 Tahun">6 Tahun</option>
+                <option value="7 Tahun">7 Tahun</option>
+                <option value="8 Tahun">8 Tahun</option>
+                <option value="9 Tahun">9 Tahun</option>
+                <option value="10+ Tahun">10+ Tahun</option>
+              </select>
+            </div>
+            <label class="col-form-label" for="inputDefault">Status</label>
+            <div class="form-group">
+              <select class="custom-select" name="status">
+                <option value="Janda/Duda">Janda/Duda</option>
+                <option value="Menikah">Menikah</option>
+                <option value="Belum Menikah">Belum Menikah</option>
+              </select>
+            </div>
+            <label class="col-form-label" for="inputDefault">Punya anak</label>
+            <div class="form-group">
+              <select class="custom-select" name="anak">
+                <option value="Ya">Ya</option>
+                <option value="Tidak">Tidak</option>
+              </select>
+            </div>            
+            <label class="col-form-label" for="inputDefault">Menginap</label>
+            <div class="form-group">
+              <select class="custom-select" name="menginap">
+                <option value="Ya">Ya</option>
+                <option value="Tidak">Tidak</option>
+              </select>
+            </div>                        
+            <label class="col-form-label" for="inputDefault">Takut Anjing</label>
+            <div class="form-group">
+              <select class="custom-select" name="anjing">
+                <option value="Ya">Ya</option>
+                <option value="Tidak">Tidak</option>
+              </select>
+            </div>                        
+            <label class="col-form-label" for="inputDefault">Pendidikan Terakhir</label>
+            <div class="form-group">
+              <select class="custom-select" name="pendidikan">
+                <option value="Tidak ada">Tidak ada</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA</option>
+                <option value="Perguruan Tinggi">Perguruan Tinggi</option>
+              </select>
+            </div>                        
+            <hr>
+            <label class="col-form-label" for="inputDefault">Gaji / Bulan</label>
+            <input type="text" class="form-control" placeholder="Gaji/bulan" name="gaji" id="inputDefault" value="{{Auth::user()->P_gaji}}">
+            <label class="col-form-label" for="inputDefault">Bahasa</label>
+            <input type="text" class="form-control" placeholder="Tahun Pengalaman" name="bahasa" id="inputDefault" value="{{Auth::user()->P_pengalaman}}">
+            <label class="col-form-label" for="inputDefault">Keterampilan</label>
+            <input type="text" class="form-control" placeholder="Keterampilan" name="keterampilan" id="inputDefault" value="{{Auth::user()->P_pengalaman}}">        
+            <label class="col-form-label" for="inputDefault">Bersedia Bekerja di</label>
+            <input type="text" class="form-control" placeholder="Surabaya, Jakarta, Padang, ... ," name="kerjadi" id="inputDefault" value="{{Auth::user()->P_pengalaman}}">                                                                                                       
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-md btn-primary">Save</button>
+        </form>
+        
+
+      </div>
+    </div>
+  </div>
+</div> --}}
 
 
 <script>

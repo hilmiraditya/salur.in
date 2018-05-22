@@ -141,6 +141,6 @@ class PekerjaController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

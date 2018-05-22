@@ -87,7 +87,7 @@
                     <td>-</td>
                   </tr>
                   <tr>
-                    <th>Pengalaman:</th>
+                    <th>Tahun Pengalaman:</th>
                     <td>-</td>
                   </tr>
                   <tr>
