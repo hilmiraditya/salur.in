@@ -84,7 +84,13 @@ class PekerjaController extends Controller
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
-            'alamat' => $request->input('alamat')
+            'alamat' => $request->input('alamat'),
+            'tgllahir' => $request->input('tanggal_lahir'),
+            'P_kelahiran' => $request->input('kota_asal'),
+            'P_agama' => $request->input('agama'),
+            'P_tinggi' => $request->input('tinggi_badan'),
+            'P_berat' => $request->input('berat_badan'),
+            'P_pekerjaan' => $request->input('customRadio')
         );
 
         //dd($DataPekerja);

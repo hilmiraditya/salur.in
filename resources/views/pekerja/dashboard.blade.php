@@ -24,7 +24,13 @@
               <div class="card-body">
                 <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 <h5 align="center">{{Auth::user()->name}}</h5>
-                    <span class="badge badge-success">Supir</span>
+                  @if(Auth::user()->P_pekerjaan == 'PRT')
+                    <span class="badge badge-success">{{Auth::user()->P_pekerjaan}}</span>                    
+                  @elseif(Auth::user()->P_pekerjaan == 'Supir')
+                    <span class="badge badge-info">{{Auth::user()->P_pekerjaan}}</span>
+                  @elseif(Auth::user()->P_pekerjaan == 'Satpam')
+                    <span class="badge badge-danger">{{Auth::user()->P_pekerjaan}}</span>                    
+                  @endif
                 <table class="table table-borderless mt-2">
                   <tr>
                     <th>Telepon:</th>
@@ -40,27 +46,27 @@
                   </tr>
                   <tr>
                     <th>Tanggal lahir:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->tgllahir}}</td>
                   </tr>
                   <tr>
                     <th>Usia:</th>
-                    <td>-</td>
+                    <td></td>
                   </tr>
                   <tr>
                     <th>Kota Asal:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_kelahiran}}</td>
                   </tr>
                   <tr>
                     <th>Agama:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_agama}}</td>
                   </tr>
                   <tr>
                     <th>Tinggi:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_tinggi}} Cm</td>
                   </tr>
                   <tr>
                     <th>Berat:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_berat}} Kg</td>
                   </tr>
                 </table>                            
                 <div class="form-group"> 
@@ -160,27 +166,27 @@
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
             <label class="col-form-label" for="inputDefault">Tanggal Lahir</label>
-            <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" id="inputDefault" value=" ">
+            <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" id="inputDefault" value="{{Auth::user()->tgllahir}}">
             <label class="col-form-label" for="inputDefault">Kota Asal</label>
-            <input type="text" class="form-control" placeholder="" name="kota_asal" id="inputDefault" value=" ">
+            <input type="text" class="form-control" placeholder="" name="kota_asal" id="inputDefault" value="{{Auth::user()->P_kelahiran}}">
             <label class="col-form-label" for="inputDefault">Agama</label>
-            <input type="text" class="form-control" placeholder="Alamat" name="agama" id="inputDefault" value=" ">
+            <input type="text" class="form-control" placeholder="Alamat" name="agama" id="inputDefault" value="{{Auth::user()->P_agama}}">
             <label class="col-form-label" for="inputDefault">Tinggi</label>
-            <input type="number" class="form-control" placeholder="Tinggi Badan" name="tinggi_badan" id="inputDefault" value=" ">
+            <input type="number" class="form-control" placeholder="Tinggi Badan" name="tinggi_badan" id="inputDefault" value="{{Auth::user()->P_tinggi}}">
             <label class="col-form-label" for="inputDefault">Berat</label>
-            <input type="number" class="form-control" placeholder="Berat Badan" name="berat" id="inputDefault" value=" ">
+            <input type="number" class="form-control" placeholder="Berat Badan" name="berat_badan" id="inputDefault" value="{{Auth::user()->P_berat}}">
             <label class="col-form-label" for="inputDefault">Pekerjaan</label>
             <div class="form-group form-inline" style="margin: 2rem auto 2rem 1rem">
                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
-                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="PRT" checked="">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="PRT" required="">
                     <label class="custom-control-label" for="customRadio1">PRT</label>
                 </div>
                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
-                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="SUP">
+                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="Supir">
                     <label class="custom-control-label" for="customRadio2">Supir</label>
                 </div>
                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
-                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="SAT">
+                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="Satpam">
                     <label class="custom-control-label" for="customRadio3">Satpam</label>
                 </div>
             </div>            

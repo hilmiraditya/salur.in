@@ -40,11 +40,11 @@ class CreateUsersTable extends Migration
             $table->string('P_kelahiran')->nullable(true);
             $table->text('P_pengalaman')->nullable(true);
             $table->string('P_keahlian')->nullable(true);
-            $table->string('P_penyalur')->nullable(true);            
+            $table->string('P_penyalur')->nullable(true);
+            $table->string('P_pekerjaan')->nullable(true);            
             $table->char('P_ketersediaan',2)->nullable(true);
 
             $table->string('P_gaji')->nullable(true);
-            $table->string('P_pengalaman')->nullable(true);
             $table->string('P_anak')->nullable(true);
             $table->string('P_menginap')->nullable(true);
             $table->string('P_anjing')->nullable(true);
@@ -59,6 +59,7 @@ class CreateUsersTable extends Migration
             //atribut Agen Only
             $table->string('A_website')->nullable(true);            
             $table->string('A_deskripsi')->nullable(true);
+
 
             //majikan
             

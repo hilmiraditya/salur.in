@@ -60,25 +60,34 @@
               </div>
             </div>            
         </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Pekerja</div>
+        <div class="col-md-8">
+            <div class="card bg-light mb-3" style="max-width: 100%;">
+              <div class="card-header">Daftar Staff</div>
               <div class="card-body">
-                <h4 class="card-title">Light card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <input width="100%" type="text"  class="form-control-plaintext p-3" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+                <table id="myTable" class="table table-bordered" width="100%">
+                  <tr class="header">
+                    <th style="width:50%;">Nama</th>
+                    <th style="width:30%;">Role</th>
+                    <th style="width:20%;">Action</th>
+                  </tr>
+                  @foreach($data as $data)
+                  <tr>
+                    <td>{{$data->name}}</td>
+                    <td></td>
+                    <td>
+                      <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit</a>
+                      <a href="/delete/{{$data->id}}" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#basicModal">Hapus</a>
+                    </td>
+                  </tr>
+                  @endforeach
+                </table>
+                
               </div>
             </div>            
         </div>
-        <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Status</div>
-              <div class="card-body">
-                <h4 class="card-title">Light card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>            
-        </div>        
-    </div>
+   </div>
 </div>
 
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -117,5 +126,28 @@
     </div>
   </div>
 </div>
+
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>
 
 @endsection

@@ -27,8 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->role == 'A'){
-
-            return view('agency.dashboard');
+            
+            $data = User::all()->where('role','P');
+            //dd($data);
+            return view('agency.dashboard',['data'=>$data]);
         }elseif (Auth::user()->role == 'M') {
             
             return view('majikan.dashboard');
