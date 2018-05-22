@@ -32,21 +32,36 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             //atribut Pekerja Only
+            $table->integer('P_berat')->nullable(true);
+            $table->integer('P_tinggi')->nullable(true);
+            $table->string('P_agama')->nullable(true);
             $table->string('P_status')->nullable(true);
             $table->string('P_domisili')->nullable(true);
             $table->string('P_kelahiran')->nullable(true);
             $table->text('P_pengalaman')->nullable(true);
             $table->string('P_keahlian')->nullable(true);
-            $table->string('P_penyalur')->nullable(true);
+            $table->string('P_penyalur')->nullable(true);            
             $table->char('P_ketersediaan',2)->nullable(true);
+
+            $table->string('P_gaji')->nullable(true);
+            $table->string('P_pengalaman')->nullable(true);
+            $table->string('P_anak')->nullable(true);
+            $table->string('P_menginap')->nullable(true);
+            $table->string('P_anjing')->nullable(true);
+            $table->string('P_bahasa')->nullable(true);
+            $table->string('P_pendidikan')->nullable(true);
+            $table->string('P_ketrampilan')->nullable(true);
+            $table->string('P_bisabekerjadi')->nullable(true);
+
+
 
             
             //atribut Agen Only
             $table->string('A_website')->nullable(true);            
             $table->string('A_deskripsi')->nullable(true);
 
-
-            $table->string('M_kerjasama')->nullable(true);
+            //majikan
+            
 
 
             

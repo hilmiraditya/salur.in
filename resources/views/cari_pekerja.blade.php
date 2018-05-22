@@ -123,11 +123,11 @@
                 </div>
                 <div class="card-footer" style="text-align: center;">
                   @guest
-                  <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
+                  <a href="/profile/{{ $data->id }}"><button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button></a>
                   @else
                     @if(Auth::user()->role == 'A')
-                    <button type="button" class="btn btn-primary btn-sm">Lihat Profil Lengkap</button>
-                    <button type="button" class="btn btn-warning btn-sm">Rekrut</button>
+                    <a href="/profile/{{ $data->id }}"><button type="button" class="btn btn-primary btn-sm">Lihat Profil Lengkap</button></a>
+                    <a href="/rekrut/{{$data->id}}"><button type="button" class="btn btn-warning btn-sm">Rekrut</button></a>
                     @elseif(Auth::user()->role == 'M')
                     <button type="button" class="btn btn-primary btn-md">Lihat Profil lengkap</button>
                   @endif

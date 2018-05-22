@@ -27,13 +27,11 @@ Route::post('/changePassword','HomeController@changepassword')->name('changePass
 Route::get('/', 'ShowController@showall');
 
 //Start--controller Pekerja
-Route::get('pekerja/editprofil/{id}', 'PekerjaController@edit');
 Route::post('/DataPekerja', 'PekerjaController@update');
 
 //End--controller Pekerja
 
 //Start--controller Majikan
-Route::get('majikan/editprofil', 'MajikanController@index');
 Route::post('/DataMajikan', 'MajikanController@update');
 
 
@@ -42,8 +40,8 @@ Route::post('/DataMajikan', 'MajikanController@update');
 
 
 //Start--controller Agen
-Route::get('agency/editprofil', 'AgencyController@index');
 Route::post('/DataAgen', 'AgencyController@update');
+Route::post('/rekrut/{$id}', 'AgencyController@rekrut');
 
 
 //End--controller Agen

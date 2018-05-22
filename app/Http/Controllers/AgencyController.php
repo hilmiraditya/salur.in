@@ -23,7 +23,7 @@ class AgencyController extends Controller
     public function index()
     {
         //
-        
+
         return view('agency.profil',compact('DataAgency'));
 
     }
@@ -109,5 +109,10 @@ class AgencyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function rekrut($id)
+    {
+        echo $id;
     }
 }

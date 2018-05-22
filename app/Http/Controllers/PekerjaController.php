@@ -79,14 +79,15 @@ class PekerjaController extends Controller
         //
         //
         $user = Auth::id();
-        // dd($user);
+        //dd($user);
         $DataPekerja = array(
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
-            'alamat' => $request->input('alamat'),
-           
+            'alamat' => $request->input('alamat')
         );
+
+        //dd($DataPekerja);
 
         User::find($user)->update($DataPekerja);
 

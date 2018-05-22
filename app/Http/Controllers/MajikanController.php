@@ -84,7 +84,7 @@ class MajikanController extends Controller
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
-            'alamat' => $request->input('alamat'),
+            'alamat' => $request->input('alamat')
         );
 
         User::find($user)->update($DataMajikan);
