@@ -27,24 +27,32 @@ class PekerjaController extends Controller
 
 
     public function rekrut(Request $request)
-    {
-        $kode = $request->input('kodeunik');
-        $user = Auth::id();
-        $agen = DB::table('users')->select('name')->where('P_verifikasi_penyalur',$kode)->first();
-        
-        // dd($agen->name);
+    {               
+            $kode = $request->input('kodeunik');
+
+            if(User::where('P_verifikasi_penyalur','=',$kode)->exists())
+            {
+                $user = Auth::id();
+                $agen = DB::table('users')->select('name')->where('P_verifikasi_penyalur',$kode)->first();
+                
+                // dd($agen->name);
+
+                
+                // $DataPekerja = array(
+                //     'P_penyalur' => $agen
+                // );
+
+                //dd($DataPekerja);
+                DB::table('users')
+                     ->where('id', $user)
+                     ->update(['P_penyalur' => $agen->name]);
+
+                return redirect()->back()->with("success","Anda berhasil bergabung!");                
+            }else{
+                return redirect()->back()->with("error","kode unik tidak cocok");                
+            }
 
         
-        // $DataPekerja = array(
-        //     'P_penyalur' => $agen
-        // );
-
-        //dd($DataPekerja);
-        DB::table('users')
-             ->where('id', $user)
-             ->update(['P_penyalur' => $agen->name]);
-
-        return redirect()->back()->with("success","Anda berhasil bergabung!");             
         
     }
 

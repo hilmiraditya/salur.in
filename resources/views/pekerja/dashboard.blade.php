@@ -132,7 +132,7 @@
               <div class="card-header">input kode Agen</div>
               <div class="card-body">
         <form method="POST" action="{{ url('/rekrut') }}">
-          <div class="form-group" >
+          <div class="form-group">
             {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Kode Unik Agen</label>
             <input type="password" class="form-control" placeholder="Kode Unik" name="kodeunik" id="inputDefault">

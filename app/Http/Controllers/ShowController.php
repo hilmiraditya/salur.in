@@ -91,13 +91,14 @@ class ShowController extends Controller
             $pekerja = User::whereNotNull('P_penyalur')->get();
         }
         elseif (Auth::user()->role == 'M') {
-            $pekerja = User::whereNotNull('P_penyalur')->all();
+            $pekerja = User::whereNotNull('P_penyalur')->get();
             // $pekerja = User::all()->where('role','P');
         }
         elseif (Auth::user()->role == 'P') {
             $pekerja = User::all()->where('role','A');
         }
         elseif (Auth::user()->role == 'A') {
+            
             $pekerja = User::all()->where('role','P');
         }        
 
