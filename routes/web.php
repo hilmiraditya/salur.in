@@ -19,6 +19,8 @@ Route::get('/tentang', function () {
     return view('about');
 });
 
+
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/changepassword', 'HomeController@view_changepassword');
@@ -28,6 +30,7 @@ Route::get('/', 'ShowController@showall');
 
 //Start--controller Pekerja
 Route::post('/DataPekerja', 'PekerjaController@update');
+Route::post('/rekrut', 'PekerjaController@rekrut');
 
 //End--controller Pekerja
 
@@ -41,7 +44,5 @@ Route::post('/DataMajikan', 'MajikanController@update');
 
 //Start--controller Agen
 Route::post('/DataAgen', 'AgencyController@update');
-Route::post('/rekrut/{$id}', 'AgencyController@rekrut');
-
 
 //End--controller Agen

@@ -57,6 +57,7 @@
                 </div>
                 <hr>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
+                <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#basicModal2">Ubah Kode Unik</a>
               </div>
             </div>            
         </div>
@@ -126,6 +127,41 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <br><br>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="myModalLabel">Edit Profil</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ url('/DataAgen') }}">
+          <div class="form-group" >
+            {{ csrf_field() }}
+            <input type="hidden" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
+            <input type="hidden" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
+            <input type="hidden" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
+            <input type="hidden" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
+            <input type="hidden" class="form-control" placeholder="Website" name="A_website" id="inputDefault" value="{{Auth::user()->A_website}}">
+            <input type="hidden" class="form-control" placeholder="Deskripsi" name="A_deskripsi" id="inputDefault" value="{{Auth::user()->A_deskripsi}}">
+            <label class="col-form-label" for="inputDefault">Kode Unik</label>
+            <input type="text" class="form-control" placeholder="kode unik" name="verifikasi" id="inputDefault" value="{{Auth::user()->P_verifikasi_penyalur}}">
+            
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-md btn-primary">Save</button>
+        </form>
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
 function myFunction() {

@@ -23,7 +23,6 @@ class MajikanController extends Controller
     public function index()
     {
         //
-        return view('majikan.profil');
     }
 
     /**

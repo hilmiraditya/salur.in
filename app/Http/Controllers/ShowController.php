@@ -87,10 +87,12 @@ class ShowController extends Controller
 
     public function showall(){
         if (Auth::guest()) {
-            $pekerja = User::all()->where('role','P');
+            // $pekerja = User::all()->where('role','P');
+            $pekerja = User::whereNotNull('P_penyalur')->get();
         }
         elseif (Auth::user()->role == 'M') {
-            $pekerja = User::all()->where('role','P');
+            $pekerja = User::whereNotNull('P_penyalur')->all();
+            // $pekerja = User::all()->where('role','P');
         }
         elseif (Auth::user()->role == 'P') {
             $pekerja = User::all()->where('role','A');

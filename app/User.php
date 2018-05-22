@@ -21,7 +21,7 @@ class User extends Authenticatable
 
         'P_status','P_domisili','P_kelahiran','P_pengalaman',
         'P_keahlian','P_penyalur','P_ketersediaan',
-        'P_agama','P_tinggi','P_berat','P_pekerjaan',
+        'P_agama','P_tinggi','P_berat','P_pekerjaan','P_verifikasi_penyalur',
 
 
         'A_website','A_deskripsi',

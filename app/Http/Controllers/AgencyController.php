@@ -23,8 +23,7 @@ class AgencyController extends Controller
     public function index()
     {
         //
-
-        return view('agency.profil',compact('DataAgency'));
+        echo "string";
 
     }
 
@@ -90,7 +89,8 @@ class AgencyController extends Controller
             'telepon' => $request->input('telepon'),
             'alamat' => $request->input('alamat'),
             'A_website' => $request->input('A_website'),
-            'A_deskripsi' => $request->input('A_deskripsi')
+            'A_deskripsi' => $request->input('A_deskripsi'),
+            'P_verifikasi_penyalur' => $request->input('verifikasi')
         );
 
         User::find($user)->update($DataAgency);
@@ -111,8 +111,5 @@ class AgencyController extends Controller
         //
     }
 
-    public function rekrut($id)
-    {
-        echo $id;
-    }
+
 }

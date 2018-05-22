@@ -1,7 +1,20 @@
 @section('content')
     <!-- Page Content -->             
     <div class="container">
-
+{{-- alert --}}
+@if (session('error'))
+<br>
+<div class="alert alert-danger">
+{{ session('error') }}
+</div>
+@endif
+@if (session('success'))
+<br>
+<div class="alert alert-success">
+{{ session('success') }}
+</div>
+@endif
+{{-- end - alert --}}
       <div class="row">
 
         <div class="col-lg-3">
@@ -77,6 +90,7 @@
         </div>
         <!-- /.col-lg-3 -->
 
+
         <div class="col-lg-9">
           <br>
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -122,16 +136,7 @@
                   <p class="card-text">Performa kerja yang luar biasa sebagai supir pribadi</p>
                 </div>
                 <div class="card-footer" style="text-align: center;">
-                  @guest
                   <a href="/profile/{{ $data->id }}"><button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button></a>
-                  @else
-                    @if(Auth::user()->role == 'A')
-                    <a href="/profile/{{ $data->id }}"><button type="button" class="btn btn-primary btn-sm">Lihat Profil Lengkap</button></a>
-                    <a href="/rekrut/{{$data->id}}"><button type="button" class="btn btn-warning btn-sm">Rekrut</button></a>
-                    @elseif(Auth::user()->role == 'M')
-                    <button type="button" class="btn btn-primary btn-md">Lihat Profil lengkap</button>
-                  @endif
-                  @endguest
                 </div>
               </div>
             </div>

@@ -129,14 +129,16 @@
         </div>
         <div class="col-md-4">
             <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-              <div class="card-header">Kontrol Akun</div>
+              <div class="card-header">input kode Agen</div>
               <div class="card-body">
-                <table class="table table-borderless">
-                  <tr>
-                    <th>Penyalur:</th>
-                    <td>-</td>
-                  </tr>
-                </table>                
+        <form method="POST" action="{{ url('/rekrut') }}">
+          <div class="form-group" >
+            {{ csrf_field() }}
+            <label class="col-form-label" for="inputDefault">Kode Unik Agen</label>
+            <input type="password" class="form-control" placeholder="Kode Unik" name="kodeunik" id="inputDefault">
+          <hr>
+          <button type="submit" class="btn btn-md btn-primary">Request</button>
+        </form>                
               </div>
             </div>            
         </div>        

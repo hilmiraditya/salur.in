@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,30 @@ class PekerjaController extends Controller
 
     public function index()
     {
-        return view('pekerja.profil');
+     
+    }
+
+
+    public function rekrut(Request $request)
+    {
+        $kode = $request->input('kodeunik');
+        $user = Auth::id();
+        $agen = DB::table('users')->select('name')->where('P_verifikasi_penyalur',$kode)->first();
+        
+        // dd($agen->name);
+
+        
+        // $DataPekerja = array(
+        //     'P_penyalur' => $agen
+        // );
+
+        //dd($DataPekerja);
+        DB::table('users')
+             ->where('id', $user)
+             ->update(['P_penyalur' => $agen->name]);
+
+        return redirect()->back()->with("success","Anda berhasil bergabung!");             
+        
     }
 
     /**

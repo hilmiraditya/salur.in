@@ -41,7 +41,9 @@ class CreateUsersTable extends Migration
             $table->text('P_pengalaman')->nullable(true);
             $table->string('P_keahlian')->nullable(true);
             $table->string('P_penyalur')->nullable(true);
-            $table->string('P_pekerjaan')->nullable(true);            
+            $table->string('P_verifikasi_penyalur')->nullable(true);
+            
+            $table->string('P_pekerjaan')->nullable(true);
             $table->char('P_ketersediaan',2)->nullable(true);
 
             $table->string('P_gaji')->nullable(true);
