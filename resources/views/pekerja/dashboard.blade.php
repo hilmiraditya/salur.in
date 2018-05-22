@@ -131,14 +131,19 @@
             <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
               <div class="card-header">input kode Agen</div>
               <div class="card-body">
-        <form method="POST" action="{{ url('/rekrut') }}">
-          <div class="form-group">
-            {{ csrf_field() }}
-            <label class="col-form-label" for="inputDefault">Kode Unik Agen</label>
-            <input type="password" class="form-control" placeholder="Kode Unik" name="kodeunik" id="inputDefault">
-          <hr>
-          <button type="submit" class="btn btn-md btn-primary">Request</button>
-        </form>                
+              @if(Auth::user()->P_penyalur == NULL)
+              <form method="POST" action="{{ url('/rekrut') }}">
+                <div class="form-group">
+                  {{ csrf_field() }}
+                  <label class="col-form-label" for="inputDefault">Kode Unik Agen</label>
+                  <input type="password" class="form-control" placeholder="Kode Unik" name="kodeunik" id="inputDefault">
+                <hr>
+                <button type="submit" class="btn btn-md btn-primary">Request</button>
+              </form>
+              @else
+                <h3>Selamat & Sukses!</h3>  
+                <p>Anda sedang menjalin kontrak kerja dengan Agen <STRONG>{{Auth::user()->P_penyalur}}</STRONG> </p>
+              @endif              
               </div>
             </div>            
         </div>        
