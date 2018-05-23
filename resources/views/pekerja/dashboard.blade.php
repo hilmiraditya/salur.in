@@ -41,6 +41,10 @@
                     <td>{{Auth::user()->email}}</td>
                   </tr>
                   <tr>
+                    <th>Jenis Kelamin:</th>
+                    <td>{{Auth::user()->kelamin}}</td>
+                  </tr>
+                  <tr>
                     <th>Alamat:</th>
                     <td>{{Auth::user()->alamat}}</td>
                   </tr>
@@ -62,11 +66,11 @@
                   </tr>
                   <tr>
                     <th>Tinggi:</th>
-                    <td>{{Auth::user()->P_tinggi}} Cm</td>
+                    <td>{{Auth::user()->P_tinggi}}</td>
                   </tr>
                   <tr>
                     <th>Berat:</th>
-                    <td>{{Auth::user()->P_berat}} Kg</td>
+                    <td>{{Auth::user()->P_berat}}</td>
                   </tr>
                 </table>                            
                 <div class="form-group"> 
@@ -84,43 +88,43 @@
                 <table class="table table-borderless">
                   <tr>
                     <th>Gaji / Bulan:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_gaji}}</td>
                   </tr>
                   <tr>
                     <th>Tahun Pengalaman:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_pengalaman}}</td>
                   </tr>
                   <tr>
                     <th>Status:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_status}}</td>
                   </tr>
                   <tr>
                     <th>Punya Anak:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_anak}}</td>
                   </tr>
                   <tr>
                     <th>Menginap:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_menginap}}</td>
                   </tr>                                    
                   <tr>
                     <th>Takut anjing:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_anjing}}</td>
                   </tr>
                   <tr>
                     <th>Bahasa:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_bahasa}}</td>
                   </tr>
                   <tr>
                     <th>Pendidikan Terakhir:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_pendidikan}}</td>
                   </tr>                  
                   <tr>
                     <th>Ketrampilan:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_keahlian}}</td>
                   </tr>
                   <tr>
                     <th>Bersedia Bekerja di:</th>
-                    <td>-</td>
+                    <td>{{Auth::user()->P_bisabekerjadi}}</td>
 
                   </tr>                                   
                 </table>                
@@ -167,7 +171,7 @@
             <label class="col-form-label" for="inputDefault">Nama</label>
             <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
             <label class="col-form-label" for="inputDefault">Email</label>
-            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
+            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}" readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
             <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
             <label class="col-form-label" for="inputDefault">Alamat</label>

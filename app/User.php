@@ -17,14 +17,19 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password', 'role',
         'noktp', 'telepon', 'tgllahir','foto',
-        'berkas','alamat',
+        'berkas','alamat','kelamin',
 
         'P_status','P_domisili','P_kelahiran','P_pengalaman',
         'P_keahlian','P_penyalur','P_ketersediaan',
-        'P_agama','P_tinggi','P_berat','P_pekerjaan','P_verifikasi_penyalur',
+        'P_agama','P_tinggi','P_berat','P_pekerjaan',
+        'P_verifikasi_penyalur', 
+
+        'P_gaji','P_anak','P_menginap','P_anjing','P_bahasa',
+        'P_pendidikan','P_bisabekerjadi',
 
 
         'A_website','A_deskripsi',
+
     ];
 
     /**

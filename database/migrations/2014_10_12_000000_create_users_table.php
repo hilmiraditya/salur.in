@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('noktp')->nullable(true);
             $table->string('telepon')->nullable(true);
             $table->date('tgllahir')->nullable(true);
+            $table->string('kelamin')->nullable(true);
 
             $table->string('foto')->nullable(true);
             $table->string('berkas')->nullable(true);

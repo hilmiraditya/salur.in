@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="card bg-light mb-3" style="max-width: 20rem;">
+            <div class="card bg-light mb-3" style="max-width: 100%;">
               @foreach($dataid as $dataid)
               <div class="card-header">Profil {{$dataid->name}}</div>
               <div class="card-body">
@@ -76,8 +76,8 @@
               </div>
             </div>            
         </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="col-md-8">
+            <div class="card text-white bg-primary mb-3" style="max-width: 100%;">
               <div class="card-header">Detail</div>
               <div class="card-body">
                 <table class="table table-borderless">
@@ -91,35 +91,35 @@
                   </tr>
                   <tr>
                     <th>Status:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_status }}</td>
                   </tr>
                   <tr>
                     <th>Punya Anak:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_anak }}</td>
                   </tr>
                   <tr>
                     <th>Menginap:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_menginap }}</td>
                   </tr>                                    
                   <tr>
                     <th>Takut anjing:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_anjing }}</td>
                   </tr>
                   <tr>
                     <th>Bahasa:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_bahasa }}</td>
                   </tr>
                   <tr>
                     <th>Pendidikan Terakhir:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_pendidikan }}</td>
                   </tr>                  
                   <tr>
-                    <th>Ketrampilan:</th>
-                    <td>-</td>
+                    <th>Keahlian:</th>
+                    <td>{{ $dataid->P_keahlian }}</td>
                   </tr>
                   <tr>
                     <th>Bersedia Bekerja di:</th>
-                    <td>-</td>
+                    <td>{{ $dataid->P_bisabekerjadi }}</td>
 
                   </tr>                                   
                 </table>       
@@ -128,27 +128,7 @@
          
               </div>
             </div>            
-        </div>
-        <div class="col-md-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
-              <div class="card-header">input kode Agen</div>
-              <div class="card-body">
-              @if($dataid->P_penyalur == NULL)
-              <form method="POST" action="{{ url('/rekrut') }}">
-                <div class="form-group">
-                  {{ csrf_field() }}
-                  <label class="col-form-label" for="inputDefault">Kode Unik Agen</label>
-                  <input type="password" class="form-control" placeholder="Kode Unik" name="kodeunik" id="inputDefault">
-                <hr>
-                <button type="submit" class="btn btn-md btn-primary">Request</button>
-              </form>
-              @else
-                <h3>Selamat & Sukses!</h3>  
-                <p>Anda sedang menjalin kontrak kerja dengan Agen <STRONG>{{$dataid->P_penyalur}}</STRONG> </p>
-              @endif              
-              </div>
-            </div>            
-        </div>        
+        </div>       
     </div>
 </div>
 
@@ -224,13 +204,13 @@
             </div>                        
             <hr>
             <label class="col-form-label" for="inputDefault">Gaji / Bulan</label>
-            <input type="text" class="form-control" placeholder="Gaji/bulan" name="gaji" id="inputDefault" value="{{Auth::user()->P_gaji}}">
+            <input type="text" class="form-control" placeholder="Gaji/bulan" name="gaji" id="inputDefault" value="{{$dataid->P_gaji}}">
             <label class="col-form-label" for="inputDefault">Bahasa</label>
-            <input type="text" class="form-control" placeholder="Tahun Pengalaman" name="bahasa" id="inputDefault" value="{{Auth::user()->P_pengalaman}}">
+            <input type="text" class="form-control" placeholder="Tahun Pengalaman" name="bahasa" id="inputDefault" value="{{$dataid->P_bahasa}}">
             <label class="col-form-label" for="inputDefault">Keterampilan</label>
-            <input type="text" class="form-control" placeholder="Keterampilan" name="keterampilan" id="inputDefault" value="{{Auth::user()->P_pengalaman}}">        
+            <input type="text" class="form-control" placeholder="Keterampilan" name="keterampilan" id="inputDefault" value="{{$dataid->P_keahlian}}">        
             <label class="col-form-label" for="inputDefault">Bersedia Bekerja di</label>
-            <input type="text" class="form-control" placeholder="Surabaya, Jakarta, Padang, ... ," name="kerjadi" id="inputDefault" value="{{Auth::user()->P_pengalaman}}">                                                                                                       
+            <input type="text" class="form-control" placeholder="Surabaya, Jakarta, Padang, ... ," name="kerjadi" id="inputDefault" value="{{$dataid->P_bisabekerjadi}}">                                                                                                       
           </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save</button>

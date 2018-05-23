@@ -99,7 +99,7 @@ class ShowController extends Controller
         }
         elseif (Auth::user()->role == 'A') {
 
-            $pekerja = User::all()->where('role','P');
+            $pekerja = User::all()->where('role','P')->where('P_penyalur',NULL);
         }        
 
         

@@ -143,6 +143,17 @@
                                 </div>
                             </div>
 
+                              <div class="form-group">                                
+                                <label for="password-confirm" class="col-md-4 control-label">Jenis Kelamin</label>
+                                <div class="col-md-12">
+                                    <select class="custom-select" name="kelamin" required="">
+                                      <option selected=""></option>
+                                      <option value="Pria">Pria</option>
+                                      <option value="Wanita">Wanita</option>
+                                    </select>                                    
+                                </div>
+                              </div>
+
                             <div class="form-group form-inline" style="margin: 2rem auto 2rem 1rem">
                                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="M" checked="">
