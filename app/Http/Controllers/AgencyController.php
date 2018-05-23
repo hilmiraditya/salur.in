@@ -116,7 +116,18 @@ class AgencyController extends Controller
     {
 
         $DataPekerja = array(
-            'P_penyalur' => NULL
+            'P_penyalur' => NULL,
+
+            'P_pengalaman' => '-',
+            'P_status' => '-',
+            'P_anak' => '-',
+            'P_menginap' => '-', 
+            'P_anjing' => '-',
+            'P_pendidikan' => '-',
+            'P_gaji' => '-',
+            'P_bahasa' => '-',
+            'P_keahlian' => '-',
+            'P_bisabekerjadi' => '-'
         );
 
         User::find($id)->update($DataPekerja);
