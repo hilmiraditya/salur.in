@@ -76,7 +76,7 @@
                   @foreach($data as $data)
                   <tr>
                     <td>{{$data->name}}</td>
-                    <td></td>
+                    <td>{{$data->P_pekerjaan}}</td>
                     <td>
                       <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" >Edit</a>
                       <a href="/hapus/{{$data->id}}" class="btn btn-sm btn-danger">Hapus</a>
@@ -108,7 +108,7 @@
             <label class="col-form-label" for="inputDefault">Nama</label>
             <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
             <label class="col-form-label" for="inputDefault">Email</label>
-            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
+            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}"  readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
             <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
             <label class="col-form-label" for="inputDefault">Alamat</label>
@@ -275,6 +275,28 @@ function myFunction() {
     } 
   }
 }
+
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
 </script>
 
 @endsection

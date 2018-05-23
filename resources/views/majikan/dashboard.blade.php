@@ -90,7 +90,7 @@
             <label class="col-form-label" for="inputDefault">Nama</label>
             <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
             <label class="col-form-label" for="inputDefault">Email</label>
-            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
+            <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}" readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
             <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
             <label class="col-form-label" for="inputDefault">Alamat</label>

@@ -82,14 +82,16 @@
                   <h4 class="card-title">
                     <a href="#">{{ $pekerja->name}}</a>
                   </h4>
-                  <p class="text-muted">Pengalaman Kerja :</p>
-                  <h5>10 sTahun</h5>
-                  <p class="card-text">Performa kerja yang luar biasa sebagai supir pribadi</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ $pekerja->telepon}}</li>
+                    <li class="list-group-item">{{ $pekerja->alamat}}</li>
+                    <li class="list-group-item">{{ $pekerja->A_website}}</li>
+                  </ul>                
                 </div>
                 <div class="card-footer" style="text-align: center;">
-                  @guest
-                  <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
-                  @else
+                  {{-- @guest --}}
+                  <button type="button" class="btn btn-primary btn-md">Lihat Agen</button>
+{{--                   @else
                     @if(Auth::user()->role == 'A')
                     <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
                     <button type="button" class="btn btn-primary btn-md">Rekrut</button>
@@ -97,7 +99,7 @@
                     <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>           
                   @endif
                   @endguest
-                </div>
+ --}}                </div>
               </div>
             </div>
             @endforeach
