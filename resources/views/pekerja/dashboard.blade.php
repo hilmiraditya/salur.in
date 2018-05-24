@@ -135,6 +135,7 @@
             <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
               <div class="card-header">input kode Agen</div>
               <div class="card-body">
+              
               @if(Auth::user()->P_penyalur == NULL)
               <form method="POST" action="{{ url('/rekrut') }}">
                 <div class="form-group">
@@ -150,7 +151,22 @@
               @endif              
               </div>
             </div>            
-        </div>        
+        </div>
+
+
+        <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+              <div class="card-header">Upload Berkas</div>
+              <div class="card-body">
+                
+                <div class="form-group">
+                 <a>Upload berkas agar Agen dapat melihat berkasmu.
+                <hr>
+                <form action="">
+                  <button type="file" class="btn btn-md btn-primary" name="pic" accept="image/*">Upload File</button>
+                  <button type="submit" class="btn btn-md btn-success">Request</button>
+                </form>        
+              </div>
+            </div>        
     </div>
 </div>
 
