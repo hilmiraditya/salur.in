@@ -133,7 +133,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h6 class="modal-title" id="myModalLabel">Edit Profil</h6>
+        <h6 class="modal-title" id="myModalLabel">Kode Unik</h6>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -148,12 +148,14 @@
             <input type="hidden" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
             <input type="hidden" class="form-control" placeholder="Website" name="A_website" id="inputDefault" value="{{Auth::user()->A_website}}">
             <input type="hidden" class="form-control" placeholder="Deskripsi" name="A_deskripsi" id="inputDefault" value="{{Auth::user()->A_deskripsi}}">
+
             <label class="col-form-label" for="inputDefault">Kode Unik</label>
             <input type="text" class="form-control" placeholder="kode unik" name="verifikasi" id="inputDefault" value="{{Auth::user()->P_verifikasi_penyalur}}">
             
           </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save</button>
+          <a href="/resettoken" class="btn btn-md btn-warning">Reset Kode</a>
         </form>
         
 

@@ -47,5 +47,6 @@ Route::post('/DataAgen', 'AgencyController@update');
 Route::post('/savedetail/{id}', 'AgencyController@save_detail_pekerja');
 Route::get('/edit/{id}', 'AgencyController@detail_pekerja');
 Route::get('/hapus/{id}', 'AgencyController@delete_staff');
+Route::get('/resettoken', 'AgencyController@reset_kode_unik');
 
 //End--controller Agen

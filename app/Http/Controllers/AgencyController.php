@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\User;
 
 class AgencyController extends Controller
@@ -17,8 +20,6 @@ class AgencyController extends Controller
     {
         $this->middleware('agency');
     }
-
-
 
     public function index()
     {
@@ -82,8 +83,10 @@ class AgencyController extends Controller
     public function update(Request $request)
     {
         //
+
         $user = Auth::id();
-        // dd($user);
+        $token = $request->input('verifikasi');
+        //dd($token);
         $DataAgency = array(
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
@@ -94,10 +97,31 @@ class AgencyController extends Controller
             'P_verifikasi_penyalur' => $request->input('verifikasi')
         );
 
-        User::find($user)->update($DataAgency);
+        $sim = User::where('P_verifikasi_penyalur', '=', $token)->first();
 
+        //dd($sim);
+
+         if ($sim == NULL) {
+             User::find($user)->update($DataAgency);    
+             return redirect()->back()->with("success","Kode unik berhasil di-set!");
+          }else{
+             return redirect()->back()->with("error","Kode unik sudah tersedia!");
+          }
+
+        
         //return redirect('/home');
-        return redirect()->back()->with("success","Data Updated successfully !");
+        
+
+    }
+
+
+    public function reset_kode_unik(){
+        $user = Auth::id();
+        $reset = array(
+            'P_verifikasi_penyalur' => NULL,
+        );
+        User::find($user)->update($reset);
+        return redirect()->back()->with("success","Kode Unik berhasil ter-reset!");
 
     }
 
