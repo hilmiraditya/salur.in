@@ -24,9 +24,10 @@ class User extends Authenticatable
         'P_agama','P_tinggi','P_berat','P_pekerjaan',
         'P_verifikasi_penyalur', 
 
+        'P_nama_file',
+
         'P_gaji','P_anak','P_menginap','P_anjing','P_bahasa',
         'P_pendidikan','P_bisabekerjadi',
-
 
         'A_website','A_deskripsi',
 

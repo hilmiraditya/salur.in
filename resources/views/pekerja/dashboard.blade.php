@@ -22,8 +22,13 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
-                <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @if(Auth::user()->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @else
+                  <img src="{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @endif
                 <h5 align="center">{{Auth::user()->name}}</h5>
+                <div align="center">
                   @if(Auth::user()->P_pekerjaan == 'PRT')
                     <span class="badge badge-success">{{Auth::user()->P_pekerjaan}}</span>                    
                   @elseif(Auth::user()->P_pekerjaan == 'Supir')
@@ -31,6 +36,7 @@
                   @elseif(Auth::user()->P_pekerjaan == 'Satpam')
                     <span class="badge badge-danger">{{Auth::user()->P_pekerjaan}}</span>                    
                   @endif
+                </div>
                 <table class="table table-borderless mt-2">
                   <tr>
                     <th>Telepon:</th>
@@ -154,16 +160,19 @@
         </div>
 
 
-        <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+        <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
               <div class="card-header">Upload Berkas</div>
               <div class="card-body">
                 
                 <div class="form-group">
-                 <a>Upload berkas agar Agen dapat melihat berkasmu.
+                 <a>Upload berkas agar Agen dapat melihat berkasmu.(Upload dengan format ZIP)</a>
+                 <br>
                 <hr>
-                <form action="">
-                  <button type="file" class="btn btn-md btn-primary" name="pic" accept="image/*">Upload File</button>
-                  <button type="submit" class="btn btn-md btn-success">Request</button>
+                <form method="post" action="{{url('/UploadBerkas')}}" enctype="multipart/form-data">
+                  {{csrf_field()}}
+                  <input type="file" name="berkas">
+                  <hr>
+                  <button type="submit" class="btn btn-primary">Upload</button>
                 </form>        
               </div>
             </div>        
@@ -204,7 +213,7 @@
             <input type="number" class="form-control" placeholder="Berat Badan" name="berat_badan" id="inputDefault" value="{{Auth::user()->P_berat}}">
             <label class="col-form-label" for="inputDefault">Pekerjaan</label>
             <div class="form-group form-inline" style="margin: 2rem auto 2rem 1rem">
-                <div class="custom-control custom-radio" style="margin: auto auto auto 1rem">
+                <div class="custom-control custom-radio" style="margin: auto auto auto 1rem;">
                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="PRT" required="">
                     <label class="custom-control-label" for="customRadio1">PRT</label>
                 </div>
@@ -220,6 +229,7 @@
             </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save changes</button>
+
         </form>
         
       </div>

@@ -20,6 +20,8 @@ Route::get('/tentang', function () {
 });
 
 
+Route::post('/file','FileController@store');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -31,7 +33,7 @@ Route::get('/', 'ShowController@showall');
 //Start--controller Pekerja
 Route::post('/DataPekerja', 'PekerjaController@update');
 Route::post('/rekrut', 'PekerjaController@rekrut');
-
+Route::post('/UploadBerkas','PekerjaController@UploadBerkas');
 //End--controller Pekerja
 
 //Start--controller Majikan

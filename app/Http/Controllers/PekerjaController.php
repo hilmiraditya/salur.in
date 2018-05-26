@@ -143,4 +143,22 @@ class PekerjaController extends Controller
     {
 
     }
+
+    public function UploadBerkas(Request $request)
+    {
+        $user = Auth::id();
+
+        $berkas = $request->file('berkas');
+        $namafile= time().'.'.$berkas->getClientOriginalExtension();
+        $path = public_path('/berkas');
+        $berkas->move($path,$namafile);
+
+        $input = array(
+            'P_nama_file' => $namafile
+        );
+
+        User::find($user)->update($input);
+
+        return redirect('/home');
+    }
 }

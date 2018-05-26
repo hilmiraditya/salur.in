@@ -80,6 +80,7 @@
                     <td>
                       <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" >Edit</a>
                       <a href="/hapus/{{$data->id}}" class="btn btn-sm btn-danger">Hapus</a>
+                      <a href="/berkas/{{$data->id}}" class="btn btn-sm btn-success">Lihat Berkas</a>
                     </td>
                   </tr>
                   @endforeach
