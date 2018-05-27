@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PekerjaController extends Controller
 {
@@ -111,8 +112,21 @@ class PekerjaController extends Controller
         //
         //
         $user = Auth::id();
-        //dd($user);
+
+        $berkas = $request->file('foto-profil');
+        $namafile= time().'.'.$berkas->getClientOriginalExtension();
+        $path = public_path('/fotoprofil');
+        $berkas->move($path,$namafile);
+
+        $file_foto = DB::table('users')->select('foto')->where('id',$id)->first();
+
+        if (Auth::id->foto != NULL)
+        {
+            File::delete($file_foto);
+        }
+
         $DataPekerja = array(
+            'foto' => '/fotoprofil/'.$namafile,
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
@@ -149,7 +163,7 @@ class PekerjaController extends Controller
         $user = Auth::id();
 
         $berkas = $request->file('berkas');
-        $namafile= time().'.'.$berkas->getClientOriginalExtension();
+        $namafile= '/berkas/'.time().'.'.$berkas->getClientOriginalExtension();
         $path = public_path('/berkas');
         $berkas->move($path,$namafile);
 
@@ -158,6 +172,25 @@ class PekerjaController extends Controller
         );
 
         User::find($user)->update($input);
+
+        return redirect('/home');
+    }
+
+    public function HapusBerkas($id)
+    {
+        $namafile_tmp = DB::table('users')->select('P_nama_file')->where('id',$id)->first();
+
+        
+        $namafile = $namafile_tmp;
+
+        $DataPekerja = array(
+            'P_nama_file' => NULL
+        );
+
+        File::delete($namafile);
+
+        User::find($id)->update($DataPekerja);
+        echo "berhasil";   
 
         return redirect('/home');
     }

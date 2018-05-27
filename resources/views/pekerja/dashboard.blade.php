@@ -23,7 +23,7 @@
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
                 @if(Auth::user()->foto == NULL)
-                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
                 @else
                   <img src="{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
@@ -163,17 +163,22 @@
         <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
               <div class="card-header">Upload Berkas</div>
               <div class="card-body">
-                
                 <div class="form-group">
-                 <a>Upload berkas agar Agen dapat melihat berkasmu.(Upload dengan format ZIP)</a>
+                @if(Auth::user()->P_nama_file == NULL)
+                 <a>Upload berkas agar Agen dapat melihat berkasmu. (Upload dengan format ZIP)</a>
                  <br>
-                <hr>
-                <form method="post" action="{{url('/UploadBerkas')}}" enctype="multipart/form-data">
-                  {{csrf_field()}}
-                  <input type="file" name="berkas">
                   <hr>
+                  <form method="post" action="{{url('/UploadBerkas')}}" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <input type="file" name="berkas">
+                    <hr>
                   <button type="submit" class="btn btn-primary">Upload</button>
-                </form>        
+                  </form>   
+                @else
+                  <a>Berkas telah di upload.</a>
+                  <hr>
+                  <a class="btn btn-primary" href="{{url('/HapusBerkas/'.Auth::user()->id)}}">Hapus Berkas</a>
+                @endif      
               </div>
             </div>        
     </div>
@@ -190,9 +195,14 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{ url('/DataPekerja') }}">
+        <form method="post" action="{{ url('/DataPekerja') }}" enctype="multipart/form-data">
           <div class="form-group" >
             {{ csrf_field() }}
+                @if(Auth::user()->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
+                @else
+                  <img src="{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @endif       
             <label class="col-form-label" for="inputDefault">Nama</label>
             <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
             <label class="col-form-label" for="inputDefault">Email</label>
@@ -211,6 +221,12 @@
             <input type="number" class="form-control" placeholder="Tinggi Badan" name="tinggi_badan" id="inputDefault" value="{{Auth::user()->P_tinggi}}">
             <label class="col-form-label" for="inputDefault">Berat</label>
             <input type="number" class="form-control" placeholder="Berat Badan" name="berat_badan" id="inputDefault" value="{{Auth::user()->P_berat}}">
+            <label class="col-form-label" for="inputDefault">Foto profil</label>
+          
+              <div class="custom-file">
+                <input type="file" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+            
             <label class="col-form-label" for="inputDefault">Pekerjaan</label>
             <div class="form-group form-inline" style="margin: 2rem auto 2rem 1rem">
                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem;">
