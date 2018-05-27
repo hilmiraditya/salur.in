@@ -27,8 +27,12 @@
             <div class="card bg-light mb-3" style="max-width: 20rem;">
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
+                @if(Auth::user()->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
+                @else
+                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @endif
                 <div class="form-group">
-                <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 <h5 align="center">{{Auth::user()->name}}</h5>
                 <hr>
                 <table class="table table-borderless">
@@ -103,8 +107,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{ url('/DataAgen') }}">
-          <div class="form-group" >
+        <form method="POST" action="{{ url('/DataAgen') }}" enctype="multipart/form-data">
+          <div class="form-group">
             {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Nama</label>
             <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
@@ -116,6 +120,10 @@
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
             <label class="col-form-label" for="inputDefault">Website</label>
             <input type="text" class="form-control" placeholder="Website" name="A_website" id="inputDefault" value="{{Auth::user()->A_website}}">
+            <label class="col-form-label" for="inputDefault">Foto Profil</label>
+              <div class="custom-file">
+                <input type="file" accept=".png, .jpg, .jpeg" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
+              </div>
             <label class="col-form-label" for="inputDefault">Deskripsi</label>
             <input type="text" class="form-control" placeholder="Deskripsi" name="A_deskripsi" id="inputDefault" value="{{Auth::user()->A_deskripsi}}">
           </div>

@@ -197,12 +197,7 @@
       <div class="modal-body">
         <form method="post" action="{{ url('/DataPekerja') }}" enctype="multipart/form-data">
           <div class="form-group" >
-            {{ csrf_field() }}
-                @if(Auth::user()->foto == NULL)
-                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
-                @else
-                  <img src="{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
-                @endif       
+            {{ csrf_field() }} 
             <label class="col-form-label" for="inputDefault">Nama</label>
             <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
             <label class="col-form-label" for="inputDefault">Email</label>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class AgencyController extends Controller
 {
@@ -83,8 +84,24 @@ class AgencyController extends Controller
     public function update(Request $request)
     {
         //
+        //
+        $id = Auth::id();
 
-        $user = Auth::id();
+        $berkas = $request->file('foto-profil');
+        $namafile= time().'.'.$berkas->getClientOriginalExtension();
+        $path = public_path('/fotoprofil');
+        $berkas->move($path,$namafile);
+
+        $file_foto = DB::table('users')->where('id',$id)->first();
+
+        //dd ($file_foto);
+
+        if ($file_foto->foto != NULL)
+        {
+            //File::delete('/fotoprofil/'.$file_foto->foto);
+            File::delete(public_path('/fotoprofil/'.$file_foto->foto));
+        }
+
         $token = $request->input('verifikasi');
         //dd($token);
         $DataAgency = array(
@@ -97,12 +114,18 @@ class AgencyController extends Controller
             'P_verifikasi_penyalur' => $request->input('verifikasi')
         );
 
+        $gantifoto = array(
+            'foto' => $namafile
+        );
+
+        User::find($id)->update($gantifoto);
+
         $sim = User::where('P_verifikasi_penyalur', '=', $token)->first();
 
         //dd($sim);
 
          if ($sim == NULL) {
-             User::find($user)->update($DataAgency);    
+             User::find($id)->update($DataAgency);    
              return redirect()->back()->with("success","Kode unik berhasil di-set!");
           }else{
              return redirect()->back()->with("error","Kode unik sudah tersedia!");
