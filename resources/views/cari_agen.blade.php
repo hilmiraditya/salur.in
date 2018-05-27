@@ -118,14 +118,13 @@
                     <a href="#">{{ $pekerja->name}}</a>
                   </h4>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ $pekerja->telepon}}</li>
-                    <li class="list-group-item">{{ $pekerja->alamat}}</li>
-                    <li class="list-group-item">{{ $pekerja->A_website}}</li>
+                    <li class="list-group-item">{{ $pekerja->wilayah}}</li>
                   </ul>                
                 </div>
                 <div class="card-footer" style="text-align: center;">
                   {{-- @guest --}}
-                  <button type="button" class="btn btn-primary btn-md">Lihat Agen</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{$pekerja->id}}">Lihat Detil</button>
+
 {{--                   @else
                     @if(Auth::user()->role == 'A')
                     <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
@@ -135,6 +134,37 @@
                   @endif
                   @endguest
  --}}                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{$pekerja->id}}" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="text-align: center;">
+                    <h5 class="modal-title" id="exampleModalLabel">{{$pekerja->name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                @if($pekerja->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
+                @else
+                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @endif
+
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">{{ $pekerja->telepon}}</li>
+                      <li class="list-group-item">{{ $pekerja->alamat}}</li>
+                      <li class="list-group-item">{{ $pekerja->A_website}}</li>
+                    </ul> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
               </div>
             </div>
             @endforeach
@@ -173,4 +203,5 @@
 
     </div>
     <!-- /.container -->
+
 @endsection
