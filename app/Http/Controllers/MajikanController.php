@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class MajikanController extends Controller
@@ -77,19 +78,38 @@ class MajikanController extends Controller
      */
     public function update(Request $request)
     {
-        $user = Auth::id();
+        $id = Auth::id();
         // dd($user);
+
+        $id = Auth::id();
+
+        $berkas = $request->file('foto-profil');
+        $namafile= time().'.'.$berkas->getClientOriginalExtension();
+        $path = public_path('/fotoprofil');
+        $berkas->move($path,$namafile);
+
+        $file_foto = DB::table('users')->where('id',$id)->first();
+
+        //dd ($file_foto);
+
+        if ($file_foto->foto != NULL)
+        {
+            //File::delete('/fotoprofil/'.$file_foto->foto);
+            File::delete(public_path('/fotoprofil/'.$file_foto->foto));
+        }
+
         $DataMajikan = array(
+            'foto' => $namafile,
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
             'alamat' => $request->input('alamat')
         );
 
-        User::find($user)->update($DataMajikan);
+        User::find($id)->update($DataMajikan);
 
         //return redirect('/home');
-        return redirect()->back()->with("success","Data Updated successfully !");        
+        return redirect()->back()->with("success","Data Berhasil di Update !");        
     }
 
     /**

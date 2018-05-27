@@ -217,11 +217,9 @@
             <label class="col-form-label" for="inputDefault">Berat</label>
             <input type="number" class="form-control" placeholder="Berat Badan" name="berat_badan" id="inputDefault" value="{{Auth::user()->P_berat}}">
             <label class="col-form-label" for="inputDefault">Foto profil</label>
-          
               <div class="custom-file">
                 <input type="file" accept=".png, .jpg, .jpeg" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
               </div>
-            
             <label class="col-form-label" for="inputDefault">Pekerjaan</label>
             <div class="form-group form-inline" style="margin: 2rem auto 2rem 1rem">
                 <div class="custom-control custom-radio" style="margin: auto auto auto 1rem;">

@@ -26,10 +26,18 @@
               <div class="card-header">Profil {{Auth::user()->name}}</div>
               <div class="card-body">
                 <div class="form-group">
-                      <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto"> 
-                      <h5 align="center">{{Auth::user()->name}}</h5>
-                      <hr>
+                @if(Auth::user()->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
+                  <hr>
+                @else
+                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                  <hr>
+                @endif
                 <table class="table table-borderless">
+                  <tr>
+                    <th>Nama</th>
+                    <td>{{Auth::user()->name}}</td>
+                  </tr>
                   <tr>
                     <th>No. Telepon</th>
                     <td>{{Auth::user()->telepon}}</td>
@@ -47,7 +55,9 @@
                       
                 </div>
                 <hr>
-                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
+                <div align="center">
+                  <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#basicModal">Edit Data</a>
+                </div>
               </div>
             </div>            
         </div>
@@ -84,7 +94,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="{{ url('/DataMajikan') }}">
+        <form method="POST" action="{{ url('/DataMajikan') }}" enctype="multipart/form-data">
           <div class="form-group" >
             {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Nama</label>
@@ -93,6 +103,10 @@
             <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}" readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
             <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
+            <label class="col-form-label" for="inputDefault">Foto profil</label>
+              <div class="custom-file">
+                <input type="file" accept=".png, .jpg, .jpeg" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
+              </div>
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
           </div>
