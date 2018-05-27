@@ -108,34 +108,71 @@ class PekerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function gantifoto(Request $request)
     {
-        //
-        //
         $id = Auth::id();
+        // dd($user);
 
         $berkas = $request->file('foto-profil');
         $namafile= time().'.'.$berkas->getClientOriginalExtension();
         $path = public_path('/fotoprofil');
         $berkas->move($path,$namafile);
 
-        $file_foto = DB::table('users')->where('id',$id)->first();
+        $query = DB::table('users')->where('id',$id)->first();
 
         //dd ($file_foto);
 
-        if ($file_foto->foto != NULL)
+        if ($query->foto != NULL)
         {
             //File::delete('/fotoprofil/'.$file_foto->foto);
-            File::delete(public_path('/fotoprofil/'.$file_foto->foto));
+            File::delete(public_path('/fotoprofil/'.$query->foto));
         }
+
+        $foto = array(
+            'foto' => $namafile
+        );
+
+        User::find($id)->update($foto);
+
+        return redirect('/home');
+    }
+
+    public function update(Request $request)
+    {
+        $id = Auth::id();
+        // dd($user);
+
+        $berkas = $request->file('foto-profil');
+        $namafile= time().'.'.$berkas->getClientOriginalExtension();
+        $path = public_path('/fotoprofil');
+        $berkas->move($path,$namafile);
+
+        $query = DB::table('users')->where('id',$id)->first();
+
+        //dd ($file_foto);
+
+        if ($query->foto != NULL)
+        {
+            //File::delete('/fotoprofil/'.$file_foto->foto);
+            File::delete(public_path('/fotoprofil/'.$query->foto));
+        }
+
+        //if ($request->input('tanggal_lahir') != NULL)
+        //{
+        //    $sql = "SELECT TIMESTAMPDIFF(YEAR,".$tanggal.",".$tanggal_sekarang.") from users where id=".$id.";";
+        //    $umur = DB::SELECT($sql);
+        //    return $umur;
+        //}
 
         $DataPekerja = array(
             'foto' => $namafile,
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
+            'wilayah' => $request->input('wilayah'),
             'alamat' => $request->input('alamat'),
             'tgllahir' => $request->input('tanggal_lahir'),
+            //'usia' => $umur,
             'P_kelahiran' => $request->input('kota_asal'),
             'P_agama' => $request->input('agama'),
             'P_tinggi' => $request->input('tinggi_badan'),
@@ -196,6 +233,6 @@ class PekerjaController extends Controller
         User::find($id)->update($DataPekerja);
         echo "berhasil";   
 
-        return redirect('/home');
+        return redirect()->back()->with("success","Berkas berhasil dihapus !");
     }
 }

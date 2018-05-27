@@ -81,8 +81,6 @@ class MajikanController extends Controller
         $id = Auth::id();
         // dd($user);
 
-        $id = Auth::id();
-
         $berkas = $request->file('foto-profil');
         $namafile= time().'.'.$berkas->getClientOriginalExtension();
         $path = public_path('/fotoprofil');
@@ -92,7 +90,7 @@ class MajikanController extends Controller
 
         //dd ($file_foto);
 
-        if ($file_foto->foto != NULL)
+        if ($file_foto->foto = NULL)
         {
             //File::delete('/fotoprofil/'.$file_foto->foto);
             File::delete(public_path('/fotoprofil/'.$file_foto->foto));

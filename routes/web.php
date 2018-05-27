@@ -35,6 +35,8 @@ Route::post('/DataPekerja', 'PekerjaController@update');
 Route::post('/rekrut', 'PekerjaController@rekrut');
 Route::post('/UploadBerkas','PekerjaController@UploadBerkas');
 Route::get('/HapusBerkas/{id}','PekerjaController@HapusBerkas');
+Route::post('/GantiFoto','PekerjaController@gantifoto');
+
 //End--controller Pekerja
 
 //Start--controller Majikan

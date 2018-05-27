@@ -109,6 +109,13 @@
               </div>
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
+            <label class="col-form-label" for="inputDefault">Wilayah Domisili</label>
+            <select name="wilayah" class="form-control" id="sel1">
+              <option value="surabaya">Surabaya</option>
+              <option value="sidoarjo">Sidoarjo</option>
+              <option value="gresik">Gresik</option>
+              <option value="malang">Malang</option>
+            </select>        
           </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save changes</button>

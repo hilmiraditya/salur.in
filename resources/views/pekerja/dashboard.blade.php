@@ -51,6 +51,10 @@
                     <td>{{Auth::user()->kelamin}}</td>
                   </tr>
                   <tr>
+                    <th>Wilayah Domisili:</th>
+                    <td>{{Auth::user()->wilayah}}</td>
+                  </tr>
+                  <tr>
                     <th>Alamat:</th>
                     <td>{{Auth::user()->alamat}}</td>
                   </tr>
@@ -83,7 +87,7 @@
                 </div>
                 <hr>
                 <a href="#" class="btn btn-sm btn-primary btn-lg btn-block" data-toggle="modal" data-target="#basicModal">Edit Data</a>
-                
+                <a href="#" class="btn btn-sm btn-primary btn-lg btn-block" data-toggle="modal" data-target="#gantifoto">Ganti Foto</a>
               </div>
             </div>            
         </div>
@@ -204,6 +208,13 @@
             <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}" readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
             <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
+            <label class="col-form-label" for="inputDefault">Wilayah Domisili</label>
+            <select name="wilayah" class="form-control" id="sel1">
+              <option value="surabaya">Surabaya</option>
+              <option value="sidoarjo">Sidoarjo</option>
+              <option value="gresik">Gresik</option>
+              <option value="malang">Malang</option>
+            </select>     
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
             <label class="col-form-label" for="inputDefault">Tanggal Lahir</label>
@@ -238,13 +249,41 @@
             </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save changes</button>
-
         </form>
-        
       </div>
     </div>
   </div>
 </div>
+
+        
+<!-- Modal -->
+<div class="modal fade" id="gantifoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form method="post" action="{{ url('/GantiFoto') }}" enctype="multipart/form-data">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ganti Foto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="custom-file">
+          <input type="file" accept=".png, .jpg, .jpeg" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Ganti Foto</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 
 
