@@ -170,7 +170,7 @@
                   <hr>
                   <form method="post" action="{{url('/UploadBerkas')}}" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <input type="file" name="berkas">
+                    <input type="file" name="berkas" accept=".ZIP, .zip">
                     <hr>
                   <button type="submit" class="btn btn-primary">Upload</button>
                   </form>   
@@ -224,7 +224,7 @@
             <label class="col-form-label" for="inputDefault">Foto profil</label>
           
               <div class="custom-file">
-                <input type="file" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" accept=".png, .jpg, .jpeg" name="foto-profil" class="form-control-file" id="exampleFormControlFile1">
               </div>
             
             <label class="col-form-label" for="inputDefault">Pekerjaan</label>
