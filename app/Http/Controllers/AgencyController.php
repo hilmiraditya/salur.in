@@ -194,6 +194,12 @@ class AgencyController extends Controller
 
     }
 
+    public function download_berkas($id)
+    {
+
+        $namafile = DB::table('users')->select('P_nama_file')->where('id',$id)->first();
+        return response()->download($namafile);
+    }
 
 
 

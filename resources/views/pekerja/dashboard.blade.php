@@ -25,7 +25,7 @@
                 @if(Auth::user()->foto == NULL)
                   <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
                 @else
-                  <img src="{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
                 <h5 align="center">{{Auth::user()->name}}</h5>
                 <div align="center">
@@ -177,7 +177,7 @@
                 @else
                   <a>Berkas telah di upload.</a>
                   <hr>
-                  <a class="btn btn-primary" href="{{url('/HapusBerkas/'.Auth::user()->id)}}">Hapus Berkas</a>
+                  <a class="btn btn-primary" href="{{url('/HapusBerkas/'.Auth::user()->id)}}">Ubah Berkas</a>
                 @endif      
               </div>
             </div>        

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
 class PekerjaController extends Controller
@@ -111,22 +112,25 @@ class PekerjaController extends Controller
     {
         //
         //
-        $user = Auth::id();
+        $id = Auth::id();
 
         $berkas = $request->file('foto-profil');
         $namafile= time().'.'.$berkas->getClientOriginalExtension();
         $path = public_path('/fotoprofil');
         $berkas->move($path,$namafile);
 
-        $file_foto = DB::table('users')->select('foto')->where('id',$id)->first();
+        $file_foto = DB::table('users')->where('id',$id)->first();
 
-        if (Auth::id->foto != NULL)
+        //dd ($file_foto);
+
+        if ($file_foto->foto != NULL)
         {
-            File::delete($file_foto);
+            //File::delete('/fotoprofil/'.$file_foto->foto);
+            File::delete(public_path('/fotoprofil/'.$file_foto->foto));
         }
 
         $DataPekerja = array(
-            'foto' => '/fotoprofil/'.$namafile,
+            'foto' => $namafile,
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
@@ -141,7 +145,7 @@ class PekerjaController extends Controller
 
         //dd($DataPekerja);
 
-        User::find($user)->update($DataPekerja);
+        User::find($id)->update($DataPekerja);
 
         //return redirect('/home');        
         return redirect()->back()->with("success","Data Updated successfully !");
@@ -163,7 +167,7 @@ class PekerjaController extends Controller
         $user = Auth::id();
 
         $berkas = $request->file('berkas');
-        $namafile= '/berkas/'.time().'.'.$berkas->getClientOriginalExtension();
+        $namafile= time().'.'.$berkas->getClientOriginalExtension();
         $path = public_path('/berkas');
         $berkas->move($path,$namafile);
 
@@ -178,16 +182,16 @@ class PekerjaController extends Controller
 
     public function HapusBerkas($id)
     {
-        $namafile_tmp = DB::table('users')->select('P_nama_file')->where('id',$id)->first();
+        $query = DB::table('users')->where('id',$id)->first();
 
         
-        $namafile = $namafile_tmp;
-
         $DataPekerja = array(
             'P_nama_file' => NULL
         );
 
-        File::delete($namafile);
+        //File::delete($namafile);
+        File::delete(public_path('/berkas/'.$query->P_nama_file));
+
 
         User::find($id)->update($DataPekerja);
         echo "berhasil";   
