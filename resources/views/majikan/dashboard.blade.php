@@ -5,7 +5,7 @@
 <br><br><br>
 <div class="container">
 
-    <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
+    <h3 align="center">Selamat Datang, {{Auth::user()->nama_lengkap}}!</h3>
     <br>
     {{-- alert --}}
     @if (session('error'))
@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card bg-light mb-3" style="max-width: 30rem;">
-              <div class="card-header">Profil {{Auth::user()->name}}</div>
+              <div class="card-header">Profil {{Auth::user()->nama_lengkap}}</div>
               <div class="card-body">
                 <div class="form-group">
                 @if(Auth::user()->foto == NULL)
@@ -36,7 +36,7 @@
                 <table class="table table-borderless">
                   <tr>
                     <th>Nama</th>
-                    <td>{{Auth::user()->name}}</td>
+                    <td>{{Auth::user()->nama_lengkap}}</td>
                   </tr>
                   <tr>
                     <th>No. Telepon</th>
@@ -49,6 +49,10 @@
                   <tr>
                     <th>Alamat</th>
                     <td>{{Auth::user()->alamat}}</td>
+                  </tr>
+                  <tr>
+                    <th>Wilayah Domisili</th>
+                    <td>{{Auth::user()->wilayah}}</td>
                   </tr>
                 </table>                            
 
@@ -98,7 +102,7 @@
           <div class="form-group" >
             {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Nama</label>
-            <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
+            <input type="text" class="form-control" placeholder="Nama" name="nama_lengkap" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
             <label class="col-form-label" for="inputDefault">Email</label>
             <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}" readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
@@ -111,10 +115,9 @@
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
             <label class="col-form-label" for="inputDefault">Wilayah Domisili</label>
             <select name="wilayah" class="form-control" id="sel1">
-              <option value="surabaya">Surabaya</option>
-              <option value="sidoarjo">Sidoarjo</option>
-              <option value="gresik">Gresik</option>
-              <option value="malang">Malang</option>
+              <option value="Surabaya">Surabaya</option>
+              <option value="Sidoarjo">Sidoarjo</option>
+              <option value="Malang">Malang</option>
             </select>        
           </div>
           <hr>

@@ -166,13 +166,13 @@ class PekerjaController extends Controller
 
         $DataPekerja = array(
             'foto' => $namafile,
-            'nama' => $request->input('nama'),
+            'nama_lengkap' => $request->input('nama_lengkap'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
             'wilayah' => $request->input('wilayah'),
             'alamat' => $request->input('alamat'),
             'tgllahir' => $request->input('tanggal_lahir'),
-            //'usia' => $umur,
+            'wilayah' => $request->input('wilayah'),
             'P_kelahiran' => $request->input('kota_asal'),
             'P_agama' => $request->input('agama'),
             'P_tinggi' => $request->input('tinggi_badan'),

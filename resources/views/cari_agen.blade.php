@@ -8,58 +8,21 @@
           <br><br>
           <div class="list-group">
             <h3 class="text-primary">Cari Agen</h3>
-
             <a href="#" class="list-group-item">
-              <label>Domisili : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Domisili</option>
-                <option>Surabaya</option>
-                <option>Sidoarjo</option>
-                <option>Malang</option>
-                <option>Gresik</option>
+              <label>Nama : </label>
+              <input type="text" name="name" class="form-control" id="pwd">            
+            </a>
+            <a href="#" class="list-group-item">
+              <label>Wilayah : </label>
+              <select name="alamat" class="form-control" id="exampleFormControlSelect1">
+                <option value="surabaya">Surabaya</option>
+                <option value="sidoarjo">Sidoarjo</option>
+                <option value="malang">Malang</option>
               </select>
             </a>
             <a href="#" class="list-group-item">
-              <label>Kota Asal : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Kota</option>
-                <option>Surabaya</option>
-                <option>Sidoarjo</option>
-                <option>Malang</option>
-                <option>Gresik</option>
-              </select>              
-            </a>
-            <a href="#" class="list-group-item">
-              <label>Pendidikan Terakhir : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Pendidikan</option>
-                <option>Kuliah</option>
-                <option>SMA</option>
-                <option>SMP</option>
-                <option>SD</option>
-                <option>Tidak Ada</option>
-              </select>
-            </a>
-            <a href="#" class="list-group-item">
-              <label>Status : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <Option>Semua</Option>
-                <option>Menikah</option>
-                <option>Lajang</option>
-                <option>Janda/Duda</option>
-              </select>
-            </a>
-            <a href="#" class="list-group-item">
-              <label>Agama : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Agama</option>
-                <option>Islam</option>
-                <option>Kristen Protestan</option>
-                <option>Kristen Katolik</option>
-                <option>Hindu</option>
-                <option>Buddha</option>
-                <option>Tidak Beragama</option>
-              </select>
+              <label>Alamat : </label>
+              <input type="text" name="alamat" class="form-control" id="pwd">            
             </a>
             <a href="#" class="list-group-item" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Cari</button>

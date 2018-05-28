@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\File;
 
 class AgencyController extends Controller
 {
@@ -105,7 +106,7 @@ class AgencyController extends Controller
         $token = $request->input('verifikasi');
         //dd($token);
         $DataAgency = array(
-            'nama' => $request->input('nama'),
+            'nama_lengkap' => $request->input('nama'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
             'alamat' => $request->input('alamat'),

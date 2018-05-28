@@ -98,8 +98,9 @@ class MajikanController extends Controller
 
         $DataMajikan = array(
             'foto' => $namafile,
-            'nama' => $request->input('nama'),
+            'nama_lengkap' => $request->input('nama_lengkap'),
             'email' => $request->input('email'),
+            'wilayah' => $request->input('wilayah'),
             'telepon' => $request->input('telepon'),
             'alamat' => $request->input('alamat')
         );

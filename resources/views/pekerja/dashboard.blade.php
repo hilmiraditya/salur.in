@@ -39,47 +39,51 @@
                 </div>
                 <table class="table table-borderless mt-2">
                   <tr>
-                    <th>Telepon:</th>
+                    <th>Nama :</th>
+                    <td>{{Auth::user()->name}}</td>
+                  </tr
+                  <tr>
+                    <th>Telepon :</th>
                     <td>{{Auth::user()->telepon}}</td>
                   </tr>
                   <tr>
-                    <th>Email:</th>
+                    <th>Email :</th>
                     <td>{{Auth::user()->email}}</td>
                   </tr>
                   <tr>
-                    <th>Jenis Kelamin:</th>
+                    <th>Jenis Kelamin :</th>
                     <td>{{Auth::user()->kelamin}}</td>
                   </tr>
                   <tr>
-                    <th>Wilayah Domisili:</th>
+                    <th>Wilayah Domisili :</th>
                     <td>{{Auth::user()->wilayah}}</td>
                   </tr>
                   <tr>
-                    <th>Alamat:</th>
+                    <th>Alamat :</th>
                     <td>{{Auth::user()->alamat}}</td>
                   </tr>
                   <tr>
-                    <th>Tanggal lahir:</th>
-                    <td>{{Auth::user()->tgllahir}}</td>
-                  </tr>
-                  <tr>
-                    <th>Usia:</th>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th>Kota Asal:</th>
+                    <th>Tempat Lahir :</th>
                     <td>{{Auth::user()->P_kelahiran}}</td>
                   </tr>
                   <tr>
-                    <th>Agama:</th>
+                    <th>Tanggal lahir :</th>
+                    <td>{{Auth::user()->tgllahir}}</td>
+                  </tr>
+                  <tr>
+                    <th>Usia :</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Agama :</th>
                     <td>{{Auth::user()->P_agama}}</td>
                   </tr>
                   <tr>
-                    <th>Tinggi:</th>
+                    <th>Tinggi :</th>
                     <td>{{Auth::user()->P_tinggi}}</td>
                   </tr>
                   <tr>
-                    <th>Berat:</th>
+                    <th>Berat :</th>
                     <td>{{Auth::user()->P_berat}}</td>
                   </tr>
                 </table>                            
@@ -201,26 +205,27 @@
       <div class="modal-body">
         <form method="post" action="{{ url('/DataPekerja') }}" enctype="multipart/form-data">
           <div class="form-group" >
-            {{ csrf_field() }} 
+            {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Nama</label>
-            <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
+            <input type="text" class="form-control" placeholder="Masukkan nama" name="nama_lengkap" id="inputDefault" value="{{Auth::user()->name}}">
             <label class="col-form-label" for="inputDefault">Email</label>
             <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}" readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
             <input type="text" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
-            <label class="col-form-label" for="inputDefault">Wilayah Domisili</label>
-            <select name="wilayah" class="form-control" id="sel1">
+            <!--<label class="col-form-label" for="inputDefault">Wilayah Domisili</label>
+            <select name="wilayah" class="form-control">
               <option value="surabaya">Surabaya</option>
               <option value="sidoarjo">Sidoarjo</option>
-              <option value="gresik">Gresik</option>
               <option value="malang">Malang</option>
-            </select>     
+            </select>-->
+            <label class="col-form-label" for="inputDefault">Domisili : </label>
+            <input type="text" class="form-control" placeholder="Alamat" name="wilayah" id="inputDefault" value="{{Auth::user()->wilayah}}">               
             <label class="col-form-label" for="inputDefault">Alamat</label>
             <input type="text" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">
             <label class="col-form-label" for="inputDefault">Tanggal Lahir</label>
             <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir" id="inputDefault" value="{{Auth::user()->tgllahir}}">
             <label class="col-form-label" for="inputDefault">Kota Asal</label>
-            <input type="text" class="form-control" placeholder="" name="kota_asal" id="inputDefault" value="{{Auth::user()->P_kelahiran}}">
+            <input type="text" class="form-control" placeholder="Kota Asal" name="kota_asal" id="inputDefault" value="{{Auth::user()->P_kelahiran}}">
             <label class="col-form-label" for="inputDefault">Agama</label>
             <input type="text" class="form-control" placeholder="Alamat" name="agama" id="inputDefault" value="{{Auth::user()->P_agama}}">
             <label class="col-form-label" for="inputDefault">Tinggi</label>
