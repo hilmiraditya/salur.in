@@ -110,7 +110,7 @@
                     <img class="card-img-top" src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" alt="">
                   @else
                     <!--<img src="/fotoprofil/" class="foto_profile" alt="Foto Profil" width="40%" height="auto">-->
-                    <img class="card-img-top" src="/fotoprofil/{{Auth::user()->foto}}" alt="">
+                    <img class="card-img-top" src="/fotoprofil/{{$pekerja->foto}}" alt="">
                   @endif
                 </a>
                 <div class="card-body">
@@ -151,7 +151,7 @@
                 @if($pekerja->foto == NULL)
                   <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
                 @else
-                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                  <img src="/fotoprofil/{{$pekerja->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
 
                     <ul class="list-group list-group-flush">
