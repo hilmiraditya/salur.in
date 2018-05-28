@@ -28,7 +28,7 @@
             </a>
             <a class="list-group-item" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Cari</button>
-                <button class="btn btn-primary">Reset</button>
+                <!--<button class="btn btn-primary">Reset</button>-->
                 <!--<a class="btn btn-primary">Lihat Semua</a>-->
             </a>
           </form>
@@ -66,9 +66,14 @@
             </a>
           </div>
           <br>
-          <div class="row">
-
+          <!--<div class="row">-->
+          @if(count($pekerja) == 0)
+          <div align="center">
+            <h5>Data tidak ditemukan</h5>
+          </div>
+          @else
           @if(1)
+          <div class="row">
             @foreach($pekerja as $pekerja)
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
@@ -86,7 +91,7 @@
                     <a href="#">{{ $pekerja->nama_lengkap}}</a>
                   </h4>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ $pekerja->wilayah}}</li>
+                    <li class="list-group-item"><b>Wilayah :</b> {{ $pekerja->wilayah}}</li>
                   </ul>                
                 </div>
                 <div class="card-footer" style="text-align: center;">
@@ -137,34 +142,11 @@
             </div>
             @endforeach
           @endif
+          @endif
 
 
           </div>
-          <!-- /.row -->
-          <div>
-          <ul class="next">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </ul>
-          </nav>
-        </div>
-        </div>
-        <!-- /.col-lg-9 -->
+
 
       </div>
       <!-- /.row -->
