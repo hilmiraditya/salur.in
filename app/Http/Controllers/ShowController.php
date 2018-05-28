@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use Illuminate\Support\Facades\DB;
+
 
 class ShowController extends Controller
 {
@@ -99,9 +101,20 @@ class ShowController extends Controller
         elseif (Auth::user()->role == 'A') {
 
             $pekerja = User::all()->where('role','P')->where('P_penyalur',NULL);
-        }        
-
-        
+        }                
         return view('welcome',['pekerja'=> $pekerja]);
+    }
+
+    public function cariagen(Request $request)
+    {
+        //return "masuk gan";
+        $pekerja = DB::table('users')
+            ->where('role', 'A')
+            ->where('nama_lengkap',$request->input('nama_lengkap'))
+            ->where('wilayah',$request->input('wilayah'))
+            ->where('alamat',$request->input('alamat'))
+            ->get();
+
+        return view('cari_agen', $pekerja);
     }
 }

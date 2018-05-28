@@ -140,7 +140,11 @@ class PekerjaController extends Controller
     public function update(Request $request)
     {
         $id = Auth::id();
-        // dd($user);
+
+        $tahun_lahir = DB::table('users')->select('tgllahir')->where('id',$id)->first()->tgllahir;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($tahun_lahir), date_create($today));
+        $umur =  $diff->format('%y');
 
         $berkas = $request->file('foto-profil');
         $namafile= time().'.'.$berkas->getClientOriginalExtension();
@@ -149,20 +153,11 @@ class PekerjaController extends Controller
 
         $query = DB::table('users')->where('id',$id)->first();
 
-        //dd ($file_foto);
 
         if ($query->foto != NULL)
         {
-            //File::delete('/fotoprofil/'.$file_foto->foto);
             File::delete(public_path('/fotoprofil/'.$query->foto));
         }
-
-        //if ($request->input('tanggal_lahir') != NULL)
-        //{
-        //    $sql = "SELECT TIMESTAMPDIFF(YEAR,".$tanggal.",".$tanggal_sekarang.") from users where id=".$id.";";
-        //    $umur = DB::SELECT($sql);
-        //    return $umur;
-        //}
 
         $DataPekerja = array(
             'foto' => $namafile,
@@ -173,6 +168,7 @@ class PekerjaController extends Controller
             'alamat' => $request->input('alamat'),
             'tgllahir' => $request->input('tanggal_lahir'),
             'wilayah' => $request->input('wilayah'),
+            'P_usia' => $umur,
             'P_kelahiran' => $request->input('kota_asal'),
             'P_agama' => $request->input('agama'),
             'P_tinggi' => $request->input('tinggi_badan'),
@@ -180,11 +176,9 @@ class PekerjaController extends Controller
             'P_pekerjaan' => $request->input('customRadio')
         );
 
-        //dd($DataPekerja);
 
         User::find($id)->update($DataPekerja);
-
-        //return redirect('/home');        
+  
         return redirect()->back()->with("success","Data Updated successfully !");
     }
 

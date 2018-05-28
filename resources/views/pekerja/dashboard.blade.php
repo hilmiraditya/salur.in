@@ -39,10 +39,6 @@
                 </div>
                 <table class="table table-borderless mt-2">
                   <tr>
-                    <th>Nama :</th>
-                    <td>{{Auth::user()->nama_lengkap}}</td>
-                  </tr
-                  <tr>
                     <th>Telepon :</th>
                     <td>{{Auth::user()->telepon}}</td>
                   </tr>
@@ -51,11 +47,11 @@
                     <td>{{Auth::user()->email}}</td>
                   </tr>
                   <tr>
-                    <th>Jenis Kelamin :</th>
+                    <th>Kelamin :</th>
                     <td>{{Auth::user()->kelamin}}</td>
                   </tr>
                   <tr>
-                    <th>Wilayah Domisili :</th>
+                    <th>Domisili :</th>
                     <td>{{Auth::user()->wilayah}}</td>
                   </tr>
                   <tr>
@@ -63,7 +59,7 @@
                     <td>{{Auth::user()->alamat}}</td>
                   </tr>
                   <tr>
-                    <th>Tempat Lahir :</th>
+                    <th>TempatLahir :</th>
                     <td>{{Auth::user()->P_kelahiran}}</td>
                   </tr>
                   <tr>
@@ -72,7 +68,7 @@
                   </tr>
                   <tr>
                     <th>Usia :</th>
-                    <td></td>
+                    <td>{{Auth::user()->P_usia}}</td>
                   </tr>
                   <tr>
                     <th>Agama :</th>
@@ -91,7 +87,6 @@
                 </div>
                 <hr>
                 <a href="#" class="btn btn-sm btn-primary btn-lg btn-block" data-toggle="modal" data-target="#basicModal">Edit Data</a>
-                <a href="#" class="btn btn-sm btn-primary btn-lg btn-block" data-toggle="modal" data-target="#gantifoto">Ganti Foto</a>
               </div>
             </div>            
         </div>

@@ -8,13 +8,15 @@
           <br><br>
           <div class="list-group">
             <h3 class="text-primary">Cari Agen</h3>
+            <form method="post" action="{{url('/CariAgen')}}">
+              {{ csrf_field() }}
             <a href="#" class="list-group-item">
               <label>Nama : </label>
-              <input type="text" name="name" class="form-control" id="pwd">            
+              <input type="text" name="nama_lengkap" class="form-control" id="pwd">            
             </a>
             <a href="#" class="list-group-item">
               <label>Wilayah : </label>
-              <select name="alamat" class="form-control" id="exampleFormControlSelect1">
+              <select name="wilayah" class="form-control" id="exampleFormControlSelect1">
                 <option value="surabaya">Surabaya</option>
                 <option value="sidoarjo">Sidoarjo</option>
                 <option value="malang">Malang</option>
@@ -27,6 +29,7 @@
             <a href="#" class="list-group-item" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Cari</button>
             </a>
+          </form>
           </div>
 
         </div>
@@ -78,7 +81,7 @@
                 </a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{ $pekerja->name}}</a>
+                    <a href="#">{{ $pekerja->nama_lengkap}}</a>
                   </h4>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $pekerja->wilayah}}</li>

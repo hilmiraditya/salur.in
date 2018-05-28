@@ -5,7 +5,7 @@
 <br><br><br>
 <div class="container">
 
-    <h3 align="center">Selamat Datang, {{Auth::user()->name}}!</h3>
+    <h3 align="center">Selamat Datang, {{Auth::user()->nama_lengkap}}!</h3>
     <br>
 
 {{-- alert --}}
@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card bg-light mb-3" style="max-width: 20rem;">
-              <div class="card-header">Profil {{Auth::user()->name}}</div>
+              <div class="card-header">Profil {{Auth::user()->nama_lengkap}}</div>
               <div class="card-body">
                 @if(Auth::user()->foto == NULL)
                   <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
@@ -33,7 +33,7 @@
                   <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
                 <div class="form-group">
-                <h5 align="center">{{Auth::user()->name}}</h5>
+                <h5 align="center">{{Auth::user()->nama_lengkap}}</h5>
                 <hr>
                 <table class="table table-borderless">
                   <tr>
@@ -79,7 +79,7 @@
                   </tr>
                   @foreach($data as $data)
                   <tr>
-                    <td>{{$data->name}}</td>
+                    <td>{{$data->nama_lengkap}}</td>
                     <td>{{$data->P_pekerjaan}}</td>
                     <td>
                       <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" >Edit</a>
@@ -111,7 +111,7 @@
           <div class="form-group">
             {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Nama</label>
-            <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
+            <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
             <label class="col-form-label" for="inputDefault">Email</label>
             <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}"  readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
@@ -151,7 +151,7 @@
         <form method="POST" action="{{ url('/DataAgen') }}">
           <div class="form-group" >
             {{ csrf_field() }}
-            <input type="hidden" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->name}}">
+            <input type="hidden" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
             <input type="hidden" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
             <input type="hidden" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
             <input type="hidden" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">

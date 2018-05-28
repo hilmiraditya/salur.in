@@ -29,13 +29,14 @@ Route::get('/changepassword', 'HomeController@view_changepassword');
 Route::post('/changePassword','HomeController@changepassword')->name('changePassword');
 
 Route::get('/', 'ShowController@showall');
+Route::post('/CariAgen', 'ShowController@cariagen');
 
 //Start--controller Pekerja
 Route::post('/DataPekerja', 'PekerjaController@update');
 Route::post('/rekrut', 'PekerjaController@rekrut');
 Route::post('/UploadBerkas','PekerjaController@UploadBerkas');
 Route::get('/HapusBerkas/{id}','PekerjaController@HapusBerkas');
-Route::post('/GantiFoto','PekerjaController@gantifoto');
+
 
 //End--controller Pekerja
 

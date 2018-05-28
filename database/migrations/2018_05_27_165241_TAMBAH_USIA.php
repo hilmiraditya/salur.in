@@ -14,7 +14,7 @@ class TAMBAHUSIA extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->string('usia')->nullable(true);
+            $table->int('usia')->nullable(true);
         });
     }
 

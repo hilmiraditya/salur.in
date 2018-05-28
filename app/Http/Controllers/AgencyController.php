@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\User;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\File;
+//use App\Http\Controllers\File;
+use Illuminate\Support\Facades\File;
 
 class AgencyController extends Controller
 {
@@ -26,7 +27,7 @@ class AgencyController extends Controller
     public function index()
     {
         //
-        echo "string";
+        //echo "string";
 
     }
 
@@ -93,14 +94,14 @@ class AgencyController extends Controller
         $path = public_path('/fotoprofil');
         $berkas->move($path,$namafile);
 
-        $file_foto = DB::table('users')->where('id',$id)->first();
+        $query = DB::table('users')->where('id',$id)->first();
 
         //dd ($file_foto);
 
-        if ($file_foto->foto != NULL)
+        if ($query->foto != NULL)
         {
             //File::delete('/fotoprofil/'.$file_foto->foto);
-            File::delete(public_path('/fotoprofil/'.$file_foto->foto));
+            File::delete(public_path('/fotoprofil/'.$query->foto));
         }
 
         $token = $request->input('verifikasi');
