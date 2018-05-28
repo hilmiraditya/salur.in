@@ -26,8 +26,10 @@
               <label>Alamat : </label>
               <input type="text" name="alamat" class="form-control" id="pwd">            
             </a>
-            <a href="#" class="list-group-item" style="text-align: center;">
+            <a class="list-group-item" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Cari</button>
+                <button class="btn btn-primary">Reset</button>
+                <!--<a class="btn btn-primary">Lihat Semua</a>-->
             </a>
           </form>
           </div>
@@ -139,7 +141,7 @@
 
           </div>
           <!-- /.row -->
-          <div style="background-color:red;">
+          <div>
           <ul class="next">
             <ul class="pagination">
               <li class="page-item">

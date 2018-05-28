@@ -146,7 +146,7 @@
 
           </div>
           <!-- /.row -->
-          <div style="background-color:red;">
+          <div>
           <ul class="next">
             <ul class="pagination">
               <li class="page-item">
