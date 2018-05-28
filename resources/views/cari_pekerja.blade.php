@@ -129,7 +129,7 @@
                 <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{ $data->name}}</a>
+                    <a href="#">{{ $data->nama_lengkap}}</a>
                   </h4>
                   <p class="text-muted">Agen :</p>
                   <h5>{{ $data->P_penyalur}}</h5>

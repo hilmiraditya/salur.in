@@ -107,16 +107,24 @@ class ShowController extends Controller
 
     public function cariagen(Request $request)
     {
-        //return "masuk gan";
         $pekerja = DB::table('users')
-            ->Where('role', 'A')
-            ->Where('nama_lengkap','like',"%{$request->input('nama_lengkap')}%")
+            ->where('role', 'A')
+            ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
             ->where('wilayah',$request->input('wilayah'))
-            ->Where('alamat', $request->input('alamat'))
+            ->where('alamat', $request->input('alamat'))
             ->get();
+        return view('welcome',['pekerja'=> $pekerja]);
+    }
 
-        //dd($pekerja);
-        return view('cari_agen', ['pekerja' => $pekerja]);
-        //return $pekerja;
+    public function caripekerja(Request $request)
+    {
+        $pekerja = DB::table('users')
+            ->orwhere('role', 'P')
+            ->orwhere('role', 'M')
+            ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
+            ->where('wilayah',$request->input('wilayah'))
+            ->where('alamat', $request->input('alamat'))
+            ->get();
+        return view('welcome',['pekerja'=> $pekerja]);
     }
 }
