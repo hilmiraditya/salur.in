@@ -28,7 +28,7 @@
               <input type="text" name="nama_lengkap" class="form-control" id="pwd">            
             </a>
             <a href="#" class="list-group-item">
-              <label>Wilayah : </label>
+              <label>Domisili : </label>
               <select name="wilayah" class="form-control" id="exampleFormControlSelect1">
                 <option value="surabaya">Surabaya</option>
                 <option value="sidoarjo">Sidoarjo</option>
@@ -37,7 +37,7 @@
             </a>
             <a href="#" class="list-group-item">
               <label>Jenis Pekerjaan : </label>
-              <select name="wilayah" class="form-control" id="exampleFormControlSelect1">
+              <select name="pekerjaan" class="form-control" id="exampleFormControlSelect1">
                 <option value="Supir">Supir</option>
                 <option value="Pembantu">Pembantu</option>
                 <option value="Satpam">Satpam</option>
@@ -104,10 +104,20 @@
                     <img class="card-img-top" src="/fotoprofil/{{$pekerja->foto}}" alt="">
                   @endif
                 </a>
-                <div class="card-body">
+                <div class="card-body" align="center">
                   <h4 class="card-title">
-                    <a href="#">{{ $pekerja->nama_lengkap}}</a>
+                    <a>{{ $pekerja->nama_lengkap}}</a>
                   </h4>
+                <div align="center">
+                  @if($pekerja->P_pekerjaan == 'PRT')
+                    <span class="badge badge-success">{{$pekerja->P_pekerjaan}}</span>                    
+                  @elseif($pekerja->P_pekerjaan == 'Supir')
+                    <span class="badge badge-info">{{$pekerja->P_pekerjaan}}</span>
+                  @elseif($pekerja->P_pekerjaan == 'Satpam')
+                    <span class="badge badge-danger">{{$pekerja->P_pekerjaan}}</span>                    
+                  @endif
+                </div>
+                <br>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Wilayah :</b> {{ $pekerja->wilayah}}</li>
                   </ul>                
@@ -117,10 +127,10 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{$pekerja->id}}">Lihat Detil</button>
 
 {{--                   @else
-                    @if(Auth::user()->role == 'A')
+                    @if($pekerja->role == 'A')
                     <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
                     <button type="button" class="btn btn-primary btn-md">Rekrut</button>
-                    @elseif(Auth::user()->role == 'P')
+                    @elseif($pekerja->role == 'P')
                     <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>           
                   @endif
                   @endguest
@@ -158,7 +168,7 @@
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item"><b>No. Telepon :</b> {{ $pekerja->telepon}}</li>
                       <li class="list-group-item"><b>Email :</b> {{ $pekerja->email}}</li>
-                      <li class="list-group-item"><b>Domisili :</b>{{ $pekerja->P_domisili}}</li>
+                      <li class="list-group-item"><b>Domisili :</b>{{ $pekerja->wilayah}}</li>
                       <li class="list-group-item"><b>Tinggi Badan :</b>{{ $pekerja->P_tinggi}}</li>
                       <li class="list-group-item"><b>Agama :</b>{{ $pekerja->P_agama}}</li>
 

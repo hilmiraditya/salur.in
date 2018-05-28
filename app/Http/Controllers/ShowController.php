@@ -125,7 +125,7 @@ class ShowController extends Controller
             ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
             ->whereNotNull('nama_lengkap')
             ->where('wilayah',$request->input('wilayah'))
-            ->where('alamat', $request->input('alamat'))
+            ->where('P_pekerjaan', $request->input('pekerjaan'))
             ->get();
         return view('welcome',['pekerja'=> $pekerja]);
     }
