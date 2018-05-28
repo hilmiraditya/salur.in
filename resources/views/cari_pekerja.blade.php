@@ -144,7 +144,17 @@
                 @else
                   <img src="/fotoprofil/{{$pekerja->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
-
+                <br><br>
+                <div align="center">
+                  @if($pekerja->P_pekerjaan == 'PRT')
+                    <span class="badge badge-success">{{$pekerja->P_pekerjaan}}</span>                    
+                  @elseif($pekerja->P_pekerjaan == 'Supir')
+                    <span class="badge badge-info">{{$pekerja->P_pekerjaan}}</span>
+                  @elseif($pekerja->P_pekerjaan == 'Satpam')
+                    <span class="badge badge-danger">{{$pekerja->P_pekerjaan}}</span>                    
+                  @endif
+                  <br><br>
+                </div>
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item"><b>No. Telepon :</b> {{ $pekerja->telepon}}</li>
                       <li class="list-group-item"><b>Email :</b> {{ $pekerja->email}}</li>
