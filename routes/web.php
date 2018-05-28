@@ -30,7 +30,7 @@ Route::post('/changePassword','HomeController@changepassword')->name('changePass
 
 Route::get('/', 'ShowController@showall');
 Route::post('/CariAgen', 'ShowController@cariagen');
-
+Route::post('/CariPekerja', 'ShowController@caripekerja');
 //Start--controller Pekerja
 Route::post('/DataPekerja', 'PekerjaController@update');
 Route::post('/rekrut', 'PekerjaController@rekrut');

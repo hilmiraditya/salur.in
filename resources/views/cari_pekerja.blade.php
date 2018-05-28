@@ -21,70 +21,34 @@
           <br><br>
           <div class="list-group">
           <h3 class="text-primary">Cari Pekerja</h3>
-
+            <form method="post" action="{{url('/CariAgen')}}">
+              {{ csrf_field() }}
             <a href="#" class="list-group-item">
-              <label>Pekerjaan : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Supir</option>
-                <option>Pembantu</option>
-                <option>Satpam</option>
+              <label>Nama : </label>
+              <input type="text" name="nama_lengkap" class="form-control" id="pwd">            
+            </a>
+            <a href="#" class="list-group-item">
+              <label>Wilayah : </label>
+              <select name="wilayah" class="form-control" id="exampleFormControlSelect1">
+                <option value="surabaya">Surabaya</option>
+                <option value="sidoarjo">Sidoarjo</option>
+                <option value="malang">Malang</option>
               </select>
             </a>
             <a href="#" class="list-group-item">
-              <label>Domisili : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Domisili</option>
-                <option>Surabaya</option>
-                <option>Sidoarjo</option>
-                <option>Malang</option>
-                <option>Gresik</option>
+              <label>Jenis Pekerjaan : </label>
+              <select name="wilayah" class="form-control" id="exampleFormControlSelect1">
+                <option value="Supir">Supir</option>
+                <option value="Pembantu">Pembantu</option>
+                <option value="Satpam">Satpam</option>
               </select>
             </a>
-            <a href="#" class="list-group-item">
-              <label>Kota Asal : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Kota</option>
-                <option>Surabaya</option>
-                <option>Sidoarjo</option>
-                <option>Malang</option>
-                <option>Gresik</option>
-              </select>              
-            </a>
-            <a href="#" class="list-group-item">
-              <label>Pendidikan Terakhir : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Pendidikan</option>
-                <option>Kuliah</option>
-                <option>SMA</option>
-                <option>SMP</option>
-                <option>SD</option>
-                <option>Tidak Ada</option>
-              </select>
-            </a>
-            <a href="#" class="list-group-item">
-              <label>Status : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <Option>Semua</Option>
-                <option>Menikah</option>
-                <option>Lajang</option>
-                <option>Janda/Duda</option>
-              </select>
-            </a>
-            <a href="#" class="list-group-item">
-              <label>Agama : </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Semua Agama</option>
-                <option>Islam</option>
-                <option>Kristen Protestan</option>
-                <option>Kristen Katolik</option>
-                <option>Hindu</option>
-                <option>Buddha</option>
-                <option>Tidak Beragama</option>
-              </select>
-            </a>
-            <a href="#" class="list-group-item" style="text-align: center;">
+            <a class="list-group-item" style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Cari</button>
+                <!--<button class="btn btn-primary">Reset</button>-->
+                <!--<a class="btn btn-primary">Lihat Semua</a>-->
             </a>
+          </form>
           </div>
 
         </div>
@@ -119,28 +83,86 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-
-
-          <div class="row">
+          <br>
+          <!--<div class="row">-->
+          @if(count($pekerja) == 0)
+          <div align="center">
+            <h5>Data tidak ditemukan</h5>
+          </div>
+          @else
           @if(1)
-            @foreach($pekerja as $data)
+          <div class="row">
+            @foreach($pekerja as $pekerja)
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <a href="#">
+                  @if($pekerja->foto == NULL)
+                    <!--<img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">-->
+                    <img class="card-img-top" src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" alt="">
+                  @else
+                    <!--<img src="/fotoprofil/" class="foto_profile" alt="Foto Profil" width="40%" height="auto">-->
+                    <img class="card-img-top" src="/fotoprofil/{{$pekerja->foto}}" alt="">
+                  @endif
+                </a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{ $data->nama_lengkap}}</a>
+                    <a href="#">{{ $pekerja->nama_lengkap}}</a>
                   </h4>
-                  <p class="text-muted">Agen :</p>
-                  <h5>{{ $data->P_penyalur}}</h5>
-                  <p class="card-text">Performa kerja yang luar biasa sebagai supir pribadi</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Wilayah :</b> {{ $pekerja->wilayah}}</li>
+                  </ul>                
                 </div>
                 <div class="card-footer" style="text-align: center;">
-                  <a href="/profile/{{ $data->id }}"><button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button></a>
+                  {{-- @guest --}}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{$pekerja->id}}">Lihat Detil</button>
+
+{{--                   @else
+                    @if(Auth::user()->role == 'A')
+                    <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>
+                    <button type="button" class="btn btn-primary btn-md">Rekrut</button>
+                    @elseif(Auth::user()->role == 'P')
+                    <button type="button" class="btn btn-primary btn-md">Lihat Profil Lengkap</button>           
+                  @endif
+                  @endguest
+ --}}                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modal{{$pekerja->id}}" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="text-align: center;">
+                    <h5 class="modal-title" id="exampleModalLabel">{{$pekerja->nama_lengkap}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                @if($pekerja->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
+                @else
+                  <img src="/fotoprofil/{{$pekerja->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @endif
+
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><b>No. Telepon :</b> {{ $pekerja->telepon}}</li>
+                      <li class="list-group-item"><b>Email :</b> {{ $pekerja->email}}</li>
+                      <li class="list-group-item"><b>Domisili :</b>{{ $pekerja->P_domisili}}</li>
+                      <li class="list-group-item"><b>Tinggi Badan :</b>{{ $pekerja->P_tinggi}}</li>
+                      <li class="list-group-item"><b>Agama :</b>{{ $pekerja->P_agama}}</li>
+
+                    </ul> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
                 </div>
               </div>
             </div>
             @endforeach
+          @endif
           @endif
 
 
