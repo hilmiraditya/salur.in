@@ -73,9 +73,9 @@
 
                 <table id="myTable" class="table table-bordered" width="100%">
                   <tr class="header">
-                    <th style="width:50%;">Nama</th>
+                    <th style="width:40%;">Nama</th>
                     <th style="width:30%;">Role</th>
-                    <th style="width:20%;">Action</th>
+                    <th style="width:30%;">Action</th>
                   </tr>
                   @foreach($data as $data)
                   <tr>
@@ -84,7 +84,7 @@
                     <td>
                       <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" >Edit</a>
                       <a href="/hapus/{{$data->id}}" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="/berkas/{{$data->id}}" class="btn btn-sm btn-success">Lihat Berkas</a>
+                      <a href="/berkas/{{$data->id}}" class="btn btn-sm btn-success">Berkas</a>
                     </td>
                   </tr>
                   @endforeach

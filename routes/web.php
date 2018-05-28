@@ -37,7 +37,6 @@ Route::post('/rekrut', 'PekerjaController@rekrut');
 Route::post('/UploadBerkas','PekerjaController@UploadBerkas');
 Route::get('/HapusBerkas/{id}','PekerjaController@HapusBerkas');
 
-
 //End--controller Pekerja
 
 //Start--controller Majikan
@@ -54,5 +53,5 @@ Route::post('/savedetail/{id}', 'AgencyController@save_detail_pekerja');
 Route::get('/edit/{id}', 'AgencyController@detail_pekerja');
 Route::get('/hapus/{id}', 'AgencyController@delete_staff');
 Route::get('/resettoken', 'AgencyController@reset_kode_unik');
-
+Route::get('/berkas/{id}', 'AgencyController@download_berkas');
 //End--controller Agen

@@ -221,9 +221,18 @@ class AgencyController extends Controller
 
     public function download_berkas($id)
     {
+        $namafile = DB::table('users')->where('id',$id)->first();
+        
+        if ($namafile->P_nama_file == NULL) return redirect('/home');
+        //return $namafile->P_nama_file;
 
-        $namafile = DB::table('users')->select('P_nama_file')->where('id',$id)->first();
-        return response()->download($namafile);
+        $file= public_path().'/berkas/'.$namafile->P_nama_file;
+
+        $headers = array(
+            'Content-Type: compressed/zip',
+        );
+
+        return response()->download($file);
     }
 
 

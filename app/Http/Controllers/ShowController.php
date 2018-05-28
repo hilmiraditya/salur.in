@@ -109,12 +109,14 @@ class ShowController extends Controller
     {
         //return "masuk gan";
         $pekerja = DB::table('users')
-            ->where('role', 'A')
-            ->where('nama_lengkap',$request->input('nama_lengkap'))
+            ->Where('role', 'A')
+            ->Where('nama_lengkap','like',"%{$request->input('nama_lengkap')}%")
             ->where('wilayah',$request->input('wilayah'))
-            ->where('alamat',$request->input('alamat'))
+            ->Where('alamat', $request->input('alamat'))
             ->get();
 
-        return view('cari_agen', $pekerja);
+        //dd($pekerja);
+        return view('cari_agen', ['pekerja' => $pekerja]);
+        //return $pekerja;
     }
 }
