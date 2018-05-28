@@ -8,7 +8,7 @@
           <br><br>
           <div class="list-group">
             <h3 class="text-primary">Cari Agen</h3>
-            <form method="post" action="{{url('/CariPekerja')}}">
+            <form method="post" action="{{url('/CariAgen')}}">
               {{ csrf_field() }}
             <a href="#" class="list-group-item">
               <label>Nama : </label>

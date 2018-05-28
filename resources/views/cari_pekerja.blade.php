@@ -21,7 +21,7 @@
           <br><br>
           <div class="list-group">
           <h3 class="text-primary">Cari Pekerja</h3>
-            <form method="post" action="{{url('/CariAgen')}}">
+            <form method="post" action="{{url('/CariPekerja')}}">
               {{ csrf_field() }}
             <a href="#" class="list-group-item">
               <label>Nama : </label>
@@ -37,7 +37,7 @@
             </a>
             <a href="#" class="list-group-item">
               <label>Jenis Pekerjaan : </label>
-              <select name="pekerjaan" class="form-control" id="exampleFormControlSelect1">
+              <select name="pekerjaanp" class="form-control" id="exampleFormControlSelect1">
                 <option value="Supir">Supir</option>
                 <option value="Pembantu">Pembantu</option>
                 <option value="Satpam">Satpam</option>
@@ -173,10 +173,6 @@
                       <li class="list-group-item"><b>Agama :</b>{{ $pekerja->P_agama}}</li>
 
                     </ul> 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>

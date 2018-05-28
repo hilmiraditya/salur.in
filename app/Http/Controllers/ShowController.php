@@ -89,18 +89,30 @@ class ShowController extends Controller
 
     public function showall(){
         if (Auth::guest()) {
-            $pekerja = User::all()->where('role','P')->where('P_penyalur',NULL);   
+            $pekerja = User::all()
+                ->where('role','P')
+                ->where('wilayah', !NULL)
+                ->where('P_pekerjaan', !NULL)
+                ->where('P_penyalur', NULL);
         }
         elseif (Auth::user()->role == 'M') {
             //$pekerja = User::whereNotNull('P_penyalur')->get();
-             $pekerja = User::all()->where('role','P');
+             $pekerja = User::all()
+                ->where('role','P')
+                ->where('wilayah', !NULL)
+                ->where('P_pekerjaan', !NULL)
+                ->where('P_penyalur', NULL);
         }
         elseif (Auth::user()->role == 'P') {
             $pekerja = User::all()->where('role','A');
         }
         elseif (Auth::user()->role == 'A') {
 
-            $pekerja = User::all()->where('role','P');
+            $pekerja = User::all()
+                ->where('role','P')
+                ->where('wilayah', !NULL)
+                ->where('P_pekerjaan', !NULL)
+                ->where('P_penyalur', NULL);
         }                
         return view('welcome',['pekerja'=> $pekerja]);
     }
@@ -114,19 +126,20 @@ class ShowController extends Controller
             ->where('wilayah',$request->input('wilayah'))
             ->where('alamat', $request->input('alamat'))
             ->get();
+//        dd ($pekerja);
         return view('welcome',['pekerja'=> $pekerja]);
     }
 
     public function caripekerja(Request $request)
     {
         $pekerja = DB::table('users')
-            ->orwhere('role', 'P')
-            ->orwhere('role', 'M')
+            ->where('role', !'A')
             ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
             ->whereNotNull('nama_lengkap')
             ->where('wilayah',$request->input('wilayah'))
             ->where('P_pekerjaan', $request->input('pekerjaan'))
             ->get();
+        dd ($pekerja);
         return view('welcome',['pekerja'=> $pekerja]);
     }
 }
