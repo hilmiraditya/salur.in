@@ -93,7 +93,7 @@ class ShowController extends Controller
                 ->where('role','P')
                 ->where('wilayah', !NULL)
                 ->where('P_pekerjaan', !NULL)
-                ->where('P_penyalur', NULL);
+                ->where('P_penyalur', !NULL);
         }
         elseif (Auth::user()->role == 'M') {
             //$pekerja = User::whereNotNull('P_penyalur')->get();
@@ -101,10 +101,16 @@ class ShowController extends Controller
                 ->where('role','P')
                 ->where('wilayah', !NULL)
                 ->where('P_pekerjaan', !NULL)
-                ->where('P_penyalur', NULL);
+                ->where('P_penyalur', !NULL);
         }
         elseif (Auth::user()->role == 'P') {
-            $pekerja = User::all()->where('role','A');
+            $pekerja = User::all()
+                ->where('role','A')
+                ->where('wilayah', !NULL)
+//                ->where('telepon', !NULL)
+//                ->where('alamat', !NULL)
+//                ->where('A_deskripsi', !NULL)
+                ;
         }
         elseif (Auth::user()->role == 'A') {
 

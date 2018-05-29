@@ -69,7 +69,6 @@
             <div class="card bg-light mb-3" style="max-width: 100%;">
               <div class="card-header">Daftar Staff</div>
               <div class="card-body">
-                <input width="100%" type="text"  class="form-control-plaintext p-3" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
                 <table id="myTable" class="table table-bordered" width="100%">
                   <tr class="header">
@@ -111,7 +110,7 @@
           <div class="form-group">
             {{ csrf_field() }}
             <label class="col-form-label" for="inputDefault">Nama</label>
-            <input type="text" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
+            <input type="text" class="form-control" placeholder="Nama" name="nama" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
             <label class="col-form-label" for="inputDefault">Email</label>
             <input type="text" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}"  readonly="">
             <label class="col-form-label" for="inputDefault">No. Telp</label>
@@ -151,7 +150,7 @@
         <form method="POST" action="{{ url('/DataAgen') }}">
           <div class="form-group" >
             {{ csrf_field() }}
-            <input type="hidden" class="form-control" placeholder="Nama" name="name" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
+            <input type="hidden" class="form-control" placeholder="Nama" name="nama" id="inputDefault" value="{{Auth::user()->nama_lengkap}}">
             <input type="hidden" class="form-control" placeholder="Email" name="email" id="inputDefault" value="{{Auth::user()->email}}">
             <input type="hidden" class="form-control" placeholder="No. Telp" name="telepon" id="inputDefault" value="{{Auth::user()->telepon}}">
             <input type="hidden" class="form-control" placeholder="Alamat" name="alamat" id="inputDefault" value="{{Auth::user()->alamat}}">

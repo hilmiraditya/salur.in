@@ -15,7 +15,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{Auth::user()->name}}
+                    {{Auth::user()->nama_lengkap}}
                     <br>
                     PROFILE AGENCy
                 </div>

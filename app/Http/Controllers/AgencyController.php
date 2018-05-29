@@ -89,6 +89,8 @@ class AgencyController extends Controller
         //
         $id = Auth::id();
 
+        if ($request->file('foto-profil') != NULL)
+        {
         $berkas = $request->file('foto-profil');
         $namafile= time().'.'.$berkas->getClientOriginalExtension();
         $path = public_path('/fotoprofil');
@@ -104,6 +106,13 @@ class AgencyController extends Controller
             File::delete(public_path('/fotoprofil/'.$query->foto));
         }
 
+        $gantifoto = array(
+            'foto' => $namafile
+        );
+
+        User::find($id)->update($gantifoto);
+        }
+
         $token = $request->input('verifikasi');
         //dd($token);
         $DataAgency = array(
@@ -116,25 +125,24 @@ class AgencyController extends Controller
             'P_verifikasi_penyalur' => $request->input('verifikasi')
         );
 
-        $gantifoto = array(
-            'foto' => $namafile
-        );
-
-        User::find($id)->update($gantifoto);
+//        dd($DataAgency);
 
         $sim = User::where('P_verifikasi_penyalur', '=', $token)->first();
 
         //dd($sim);
 
-         if ($sim == NULL) {
+//         if ($sim == NULL) 
+//         {
              User::find($id)->update($DataAgency);    
-             return redirect()->back()->with("success","Kode unik berhasil di-set!");
-          }else{
-             return redirect()->back()->with("error","Kode unik sudah tersedia!");
-          }
+//             return redirect()->back()->with("success","Kode unik berhasil di-set!");
+//        }
+//        else
+//        {
+//             return redirect()->back()->with("error","Kode unik sudah tersedia!");
+//          }
 
         
-        //return redirect('/home');
+        return redirect('/home');
         
 
     }
@@ -209,7 +217,7 @@ class AgencyController extends Controller
             'P_gaji' => $request->input('gaji'),
             'P_bahasa' => $request->input('bahasa'),
             'P_keahlian' => $request->input('keterampilan'),
-            'P_bisabekerjadi' => $request->input('kerjadi')
+            'P_bisabekerjadi' => $request->input('bersedia_kerja')
 
         );
 

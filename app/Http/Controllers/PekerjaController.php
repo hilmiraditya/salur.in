@@ -35,7 +35,7 @@ class PekerjaController extends Controller
             if(User::where('P_verifikasi_penyalur','=',$kode)->exists())
             {
                 $user = Auth::id();
-                $agen = DB::table('users')->select('name')->where('P_verifikasi_penyalur',$kode)->first();
+                $agen = DB::table('users')->select('nama_lengkap')->where('P_verifikasi_penyalur',$kode)->first();
                 
                 // dd($agen->name);
 
@@ -47,7 +47,7 @@ class PekerjaController extends Controller
                 //dd($DataPekerja);
                 DB::table('users')
                      ->where('id', $user)
-                     ->update(['P_penyalur' => $agen->name]);
+                     ->update(['P_penyalur' => $agen->nama_lengkap]);
 
                 return redirect()->back()->with("success","Anda berhasil bergabung!");                
             }else{

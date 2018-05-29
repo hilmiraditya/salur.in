@@ -21,10 +21,15 @@
         <div class="col-md-4">
             <div class="card bg-light mb-3" style="max-width: 100%;">
               @foreach($dataid as $dataid)
-              <div class="card-header">Profil {{$dataid->name}}</div>
+              <div class="card-header">Profil {{$dataid->nama_lengkap}}</div>
               <div class="card-body">
-                <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
-                <h5 align="center">{{$dataid->name}}</h5>
+                @if($dataid->foto == NULL)
+                  <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
+                @else
+                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                @endif
+                <h5 align="center">{{$dataid->nama_lengkap}}</h5>
+                <div align="center">
                   @if($dataid->P_pekerjaan == 'PRT')
                     <span class="badge badge-success">{{$dataid->P_pekerjaan}}</span>                    
                   @elseif($dataid->P_pekerjaan == 'Supir')
@@ -32,6 +37,7 @@
                   @elseif($dataid->P_pekerjaan == 'Satpam')
                     <span class="badge badge-danger">{{$dataid->P_pekerjaan}}</span>                    
                   @endif
+                </div>
                 <table class="table table-borderless mt-2">
                   <tr>
                     <th>Telepon:</th>
@@ -51,11 +57,15 @@
                   </tr>
                   <tr>
                     <th>Usia:</th>
-                    <td></td>
+                    <td>{{$dataid->P_usia}}</td>
                   </tr>
                   <tr>
-                    <th>Kota Asal:</th>
+                    <th>Tempat Lahir:</th>
                     <td>{{$dataid->P_kelahiran}}</td>
+                  </tr>
+                  <tr>
+                    <th>Domisili:</th>
+                    <td>{{$dataid->wilayah}}</td>
                   </tr>
                   <tr>
                     <th>Agama:</th>
@@ -83,7 +93,10 @@
                 <table class="table table-borderless">
                   <tr>
                     <th>Gaji / Bulan:</th>
-                    <td>{{ $dataid->P_gaji }}</td>
+                    <?php
+                      $hasil_rupiah = "Rp " . number_format($dataid->P_gaji,2,',','.');
+                    ?>
+                    <td><?php echo $hasil_rupiah;?></td>
                   </tr>
                   <tr>
                     <th>Tahun Pengalaman:</th>
@@ -208,9 +221,12 @@
             <label class="col-form-label" for="inputDefault">Bahasa</label>
             <input type="text" class="form-control" placeholder="Tahun Pengalaman" name="bahasa" id="inputDefault" value="{{$dataid->P_bahasa}}">
             <label class="col-form-label" for="inputDefault">Keterampilan</label>
-            <input type="text" class="form-control" placeholder="Keterampilan" name="keterampilan" id="inputDefault" value="{{$dataid->P_keahlian}}">        
-            <label class="col-form-label" for="inputDefault">Bersedia Bekerja di</label>
-            <input type="text" class="form-control" placeholder="Surabaya, Jakarta, Padang, ... ," name="kerjadi" id="inputDefault" value="{{$dataid->P_bisabekerjadi}}">                                                                                                       
+            <input type="text" class="form-control" placeholder="Keterampilan" name="keterampilan" id="inputDefault" value="{{$dataid->P_keahlian}}">    
+            <label class="col-form-label" for="inputDefault">Wilayah Domisili : </label>
+            <select name="bersedia_kerja" class="form-control" id="sel1">
+              <option value="Dalam Kota">Dalam Kota</option>
+              <option value="Luar Kota">Luar Kota</option>
+            </select>                                                      
           </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save</button>
