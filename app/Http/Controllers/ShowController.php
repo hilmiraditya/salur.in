@@ -95,6 +95,7 @@ class ShowController extends Controller
                 ->where('P_pekerjaan', !NULL)
                 ->where('P_penyalur', !NULL)
                 ->where('P_statuskerja', 'Tersedia');
+                //->where('P_gaji', !NULL);
         }
         elseif (Auth::user()->role == 'M') {
             //$pekerja = User::whereNotNull('P_penyalur')->get();
@@ -104,6 +105,7 @@ class ShowController extends Controller
                 ->where('P_pekerjaan', !NULL)
                 ->where('P_penyalur', !NULL)
                 ->where('P_statuskerja', 'Tersedia');
+                //->where('P_gaji', !NULL);
         }
         elseif (Auth::user()->role == 'P') {
             $pekerja = User::all()
@@ -140,6 +142,22 @@ class ShowController extends Controller
 
     public function caripekerja(Request $request)
     {
+
+        if (Auth::guest() || Auth::user()->role == 'M')
+        {
+            $pekerja = DB::table('users')
+            ->where('role', 'P')
+            ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
+            ->whereNotNull('nama_lengkap')
+            ->where('wilayah',$request->input('wilayah'))
+            ->where('P_pekerjaan', $request->input('pekerjaan'))
+            ->where('P_statuskerja', 'Tersedia')
+            ->get();
+        }
+        else if (Auth::user()->role == 'A')
+        { 
+        //agen Penyalurnya kosong
+        //agen Penyalurnya tidak kosong
         $pekerja = DB::table('users')
             ->where('role', 'P')
             ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
@@ -148,6 +166,7 @@ class ShowController extends Controller
             ->where('P_pekerjaan', $request->input('pekerjaan'))
             ->where('P_penyalur', NULL)
             ->get();
+        }
 //        dd ($pekerja);
         return view('welcome',['pekerja'=> $pekerja]);
     }

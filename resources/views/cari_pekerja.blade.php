@@ -120,7 +120,15 @@
                 <br>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Wilayah :</b> {{ $pekerja->wilayah}}</li>
-                  </ul>                
+                    <?php
+                      $hasil_rupiah = "Rp " . number_format($pekerja->P_gaji,2,',','.');
+                    ?>
+                    @if($pekerja->P_gaji > 0)
+                      <li class="list-group-item"><b>Gaji :</b> <?php echo $hasil_rupiah; ?></li>
+                    @elseif($pekerja->P_gaji <= 0)
+                      <li class="list-group-item"><b>Gaji :</b> - </li>
+                    @endif
+                  </ul>             
                 </div>
                 <div class="card-footer" style="text-align: center;">
                   {{-- @guest --}}
