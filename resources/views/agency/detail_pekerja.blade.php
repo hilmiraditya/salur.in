@@ -133,8 +133,11 @@
                   <tr>
                     <th>Bersedia Bekerja di:</th>
                     <td>{{ $dataid->P_bisabekerjadi }}</td>
-
-                  </tr>                                   
+                  </tr>              
+                  <tr>
+                    <th>Status Pekerjaan:</th>
+                    <td>{{ $dataid->P_statuskerja }}</td>
+                  </tr>                              
                 </table>       
                                 <hr>
                 <a href="#" class="btn btn-sm bg-white btn-lg btn-block" data-toggle="modal" data-target="#basicModal">Edit Data</a>
@@ -226,6 +229,11 @@
             <select name="bersedia_kerja" class="form-control" id="sel1">
               <option value="Dalam Kota">Dalam Kota</option>
               <option value="Luar Kota">Luar Kota</option>
+            </select>
+            <label class="col-form-label" for="inputDefault">Status Pekerjaan : </label>
+            <select name="status_kerja" class="form-control" id="sel1">
+              <option value="Tersedia">Tersedia</option>
+              <option value="Sedang Bekerja">Sedang Bekerja</option>
             </select>                                                      
           </div>
           <hr>

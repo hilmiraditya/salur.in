@@ -81,23 +81,32 @@ class MajikanController extends Controller
         $id = Auth::id();
         // dd($user);
 
-        $berkas = $request->file('foto-profil');
-        $namafile= time().'.'.$berkas->getClientOriginalExtension();
-        $path = public_path('/fotoprofil');
-        $berkas->move($path,$namafile);
-
-        $file_foto = DB::table('users')->where('id',$id)->first();
-
-        //dd ($file_foto);
-
-        if ($file_foto->foto = NULL)
+        if ($request->file('foto-profil') != NULL)
         {
-            //File::delete('/fotoprofil/'.$file_foto->foto);
-            File::delete(public_path('/fotoprofil/'.$file_foto->foto));
+            $berkas = $request->file('foto-profil');
+            $namafile= time().'.'.$berkas->getClientOriginalExtension();
+            $path = public_path('/fotoprofil');
+            $berkas->move($path,$namafile);
+
+            $query = DB::table('users')->where('id',$id)->first();
+
+            //dd ($file_foto);
+
+            if ($query->foto != NULL)
+            {
+                //File::delete('/fotoprofil/'.$file_foto->foto);
+                File::delete(public_path('/fotoprofil/'.$query->foto));
+            }
+
+            $gantifoto = array(
+                'foto' => $namafile
+            );
+
+            User::find($id)->update($gantifoto);
         }
 
         $DataMajikan = array(
-            'foto' => $namafile,
+            //'foto' => $namafile,
             'nama_lengkap' => $request->input('nama_lengkap'),
             'email' => $request->input('email'),
             'wilayah' => $request->input('wilayah'),

@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         if(Auth::user()->role == 'A'){
             
-            $data = User::all()->where('role','P')->where('P_penyalur',Auth::user()->nama_lengkap);
+            $data = User::all()->where('role','P')->where('P_penyalur',Auth::user()->email);
             // dd($data);
             return view('agency.dashboard',['data'=>$data]);
         }elseif (Auth::user()->role == 'M') {

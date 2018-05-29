@@ -91,26 +91,26 @@ class AgencyController extends Controller
 
         if ($request->file('foto-profil') != NULL)
         {
-        $berkas = $request->file('foto-profil');
-        $namafile= time().'.'.$berkas->getClientOriginalExtension();
-        $path = public_path('/fotoprofil');
-        $berkas->move($path,$namafile);
+            $berkas = $request->file('foto-profil');
+            $namafile= time().'.'.$berkas->getClientOriginalExtension();
+            $path = public_path('/fotoprofil');
+            $berkas->move($path,$namafile);
 
-        $query = DB::table('users')->where('id',$id)->first();
+            $query = DB::table('users')->where('id',$id)->first();
 
-        //dd ($file_foto);
+            //dd ($file_foto);
 
-        if ($query->foto != NULL)
-        {
-            //File::delete('/fotoprofil/'.$file_foto->foto);
-            File::delete(public_path('/fotoprofil/'.$query->foto));
-        }
+            if ($query->foto != NULL)
+            {
+                //File::delete('/fotoprofil/'.$file_foto->foto);
+                File::delete(public_path('/fotoprofil/'.$query->foto));
+            }
 
-        $gantifoto = array(
-            'foto' => $namafile
-        );
+            $gantifoto = array(
+                'foto' => $namafile
+            );
 
-        User::find($id)->update($gantifoto);
+            User::find($id)->update($gantifoto);
         }
 
         $token = $request->input('verifikasi');
@@ -217,11 +217,10 @@ class AgencyController extends Controller
             'P_gaji' => $request->input('gaji'),
             'P_bahasa' => $request->input('bahasa'),
             'P_keahlian' => $request->input('keterampilan'),
-            'P_bisabekerjadi' => $request->input('bersedia_kerja')
-
+            'P_bisabekerjadi' => $request->input('bersedia_kerja'),
+            'P_statuskerja' => $request->input('status_kerja')
         );
 
-        //dd($detail_pekerja);
         User::find($id)->update($detail_pekerja);
         return redirect()->back()->with("success","Detail ter Update!");
 

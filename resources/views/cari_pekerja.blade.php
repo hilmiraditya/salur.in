@@ -39,7 +39,7 @@
               <label>Jenis Pekerjaan : </label>
               <select name="pekerjaan" class="form-control" id="exampleFormControlSelect1">
                 <option value="Supir">Supir</option>
-                <option value="Pembantu">Pembantu</option>
+                <option value="PRT">PRT</option>
                 <option value="Satpam">Satpam</option>
               </select>
             </a>

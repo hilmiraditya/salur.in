@@ -27,7 +27,7 @@ class User extends Authenticatable
         'P_nama_file', 'wilayah',
 
         'P_gaji','P_anak','P_menginap','P_anjing','P_bahasa',
-        'P_pendidikan','P_bisabekerjadi','P_usia',
+        'P_pendidikan','P_bisabekerjadi','P_usia','P_statuskerja',
 
         'A_website','A_deskripsi',
 

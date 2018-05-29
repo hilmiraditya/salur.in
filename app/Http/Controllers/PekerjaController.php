@@ -47,7 +47,7 @@ class PekerjaController extends Controller
                 //dd($DataPekerja);
                 DB::table('users')
                      ->where('id', $user)
-                     ->update(['P_penyalur' => $agen->nama_lengkap]);
+                     ->update(['P_penyalur' => $agen->email]);
 
                 return redirect()->back()->with("success","Anda berhasil bergabung!");                
             }else{
@@ -146,21 +146,32 @@ class PekerjaController extends Controller
         $diff = date_diff(date_create($tahun_lahir), date_create($today));
         $umur =  $diff->format('%y');
 
-        $berkas = $request->file('foto-profil');
-        $namafile= time().'.'.$berkas->getClientOriginalExtension();
-        $path = public_path('/fotoprofil');
-        $berkas->move($path,$namafile);
-
-        $query = DB::table('users')->where('id',$id)->first();
-
-
-        if ($query->foto != NULL)
+        if ($request->file('foto-profil') != NULL)
         {
-            File::delete(public_path('/fotoprofil/'.$query->foto));
+            $berkas = $request->file('foto-profil');
+            $namafile= time().'.'.$berkas->getClientOriginalExtension();
+            $path = public_path('/fotoprofil');
+            $berkas->move($path,$namafile);
+
+            $query = DB::table('users')->where('id',$id)->first();
+
+            //dd ($file_foto);
+
+            if ($query->foto != NULL)
+            {
+                //File::delete('/fotoprofil/'.$file_foto->foto);
+                File::delete(public_path('/fotoprofil/'.$query->foto));
+            }
+
+            $gantifoto = array(
+                'foto' => $namafile
+            );
+
+            User::find($id)->update($gantifoto);
         }
 
         $DataPekerja = array(
-            'foto' => $namafile,
+            //'foto' => $namafile,
             'nama_lengkap' => $request->input('nama_lengkap'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
