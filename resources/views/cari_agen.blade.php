@@ -83,7 +83,7 @@
                     <img class="card-img-top" src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" alt="">
                   @else
                     <!--<img src="/fotoprofil/" class="foto_profile" alt="Foto Profil" width="40%" height="auto">-->
-                    <img class="card-img-top" src="/fotoprofil/{{$pekerja->foto}}" alt="">
+                    <img class="card-img-top" src="{{url('/fotoprofil/'.$pekerja->foto)}}" alt="">
                   @endif
                 </a>
                 <div class="card-body">
@@ -128,14 +128,10 @@
                 @endif
 
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">{{ $pekerja->telepon}}</li>
-                      <li class="list-group-item">{{ $pekerja->alamat}}</li>
-                      <li class="list-group-item">{{ $pekerja->A_website}}</li>
+                      <li class="list-group-item"><b>No. Telepon</b> : {{ $pekerja->telepon}}</li>
+                      <li class="list-group-item"><b>Pekerjaan</b> : {{ $pekerja->alamat}}</li>
+                      <li class="list-group-item"><b>Website</b> : {{ $pekerja->A_website}}</li>
                     </ul> 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>

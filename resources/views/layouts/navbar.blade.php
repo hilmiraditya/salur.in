@@ -61,12 +61,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item @yield('home')">
-              <a class="nav-link" href="/">Home
+              <a class="nav-link" href="{{url('/')}}">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item @yield('about')">
-              <a class="nav-link" href="/tentang">About</a>
+              <a class="nav-link" href="{{url('/tentang')}}">About</a>
             </li>
             <li class="nav-item @yield('masuk')">                
                         @guest
@@ -79,8 +79,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li class="nav-link ml-3"><a class="nav-item" href="/home">Dashboard</a></li>
-                                    <li class="nav-link ml-3"><a class="nav-item text-muted" href="/changepassword">Change Password</a></li>
+                                    <li class="nav-link ml-3"><a class="nav-item" href="{{url('/home')}}">Dashboard</a></li>
+                                    <li class="nav-link ml-3"><a class="nav-item text-muted" href="{{url('/changepassword')}}">Change Password</a></li>
                                     <li class="nav-link ml-3">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

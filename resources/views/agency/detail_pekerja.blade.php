@@ -26,7 +26,7 @@
                 @if($dataid->foto == NULL)
                   <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
                 @else
-                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                  <img src="{{url('/fotoprofil/'.$dataid()->foto)}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
                 <h5 align="center">{{$dataid->nama_lengkap}}</h5>
                 <div align="center">

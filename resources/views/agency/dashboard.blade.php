@@ -30,7 +30,7 @@
                 @if(Auth::user()->foto == NULL)
                   <img src="https://independentsector.org/wp-content/uploads/2016/12/blankhead.jpg" class="foto_profile" width="40%" height="auto">
                 @else
-                  <img src="/fotoprofil/{{Auth::user()->foto}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
+                  <img src="{{url('/fotoprofil/'.Auth::user()->foto)}}" class="foto_profile" alt="Foto Profil" width="40%" height="auto">
                 @endif
                 <div class="form-group">
                 <h5 align="center">{{Auth::user()->nama_lengkap}}</h5>
@@ -81,9 +81,9 @@
                     <td>{{$data->nama_lengkap}}</td>
                     <td>{{$data->P_pekerjaan}}</td>
                     <td>
-                      <a href="/edit/{{$data->id}}" class="btn btn-sm btn-primary" >Edit</a>
-                      <a href="/hapus/{{$data->id}}" class="btn btn-sm btn-danger">Hapus</a>
-                      <a href="/berkas/{{$data->id}}" class="btn btn-sm btn-success">Berkas</a>
+                      <a href="{{url('/edit/'.$data->id)}}" class="btn btn-sm btn-primary" >Edit</a>
+                      <a href="{{url('/hapus/'.$data->id)}}" class="btn btn-sm btn-danger">Hapus</a>
+                      <a href="{{url('/berkas/'.$data->id)}}" class="btn btn-sm btn-success">Berkas</a>
                     </td>
                   </tr>
                   @endforeach
@@ -163,7 +163,7 @@
           </div>
           <hr>
           <button type="submit" class="btn btn-md btn-primary">Save</button>
-          <a href="/resettoken" class="btn btn-md btn-warning">Reset Kode</a>
+          <a href="{{url('/resettoken')}}" class="btn btn-md btn-warning">Reset Kode</a>
         </form>
         
 
