@@ -37,7 +37,7 @@
             </a>
             <a href="#" class="list-group-item">
               <label>Jenis Pekerjaan : </label>
-              <select name="pekerjaanp" class="form-control" id="exampleFormControlSelect1">
+              <select name="pekerjaan" class="form-control" id="exampleFormControlSelect1">
                 <option value="Supir">Supir</option>
                 <option value="Pembantu">Pembantu</option>
                 <option value="Satpam">Satpam</option>

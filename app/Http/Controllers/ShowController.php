@@ -133,13 +133,13 @@ class ShowController extends Controller
     public function caripekerja(Request $request)
     {
         $pekerja = DB::table('users')
-            ->where('role', !'A')
+            ->where('role', 'P')
             ->where('nama_lengkap','like','%'.$request->input('nama_lengkap').'%')
             ->whereNotNull('nama_lengkap')
             ->where('wilayah',$request->input('wilayah'))
             ->where('P_pekerjaan', $request->input('pekerjaan'))
             ->get();
-        dd ($pekerja);
+//        dd ($pekerja);
         return view('welcome',['pekerja'=> $pekerja]);
     }
 }
